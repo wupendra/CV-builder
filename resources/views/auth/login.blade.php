@@ -1,13 +1,24 @@
-@extends('layouts.app')
-
+@extends('component.frontend.layouts.front')
+@section('page_title', 'Make My CV')
+@section('stylesheets')
+    @parent
+@endsection
 @section('content')
+<div class="container brdcrmb-sec">
+    <div class="btn-group btn-breadcrumb">
+    <a href="{{ route('home') }}" class="btn btn-default btn-myway"><i class="fa fa-home"></i></a>
+        <a href="#" class="btn btn-default">Log In</a>
+    </div>
+</div><!--breadcrumb-->
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center login-form">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="row">
+                <div class="login-head intro-header-sec col-md-12">
+                    <h4>{{ __('Login') }}</h4>
+                </div>
 
-                <div class="card-body">
+                <div class="col-md-12">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -40,8 +51,8 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
+                            <div class="col-md-7 offset-md-4">
+                                <div class="form-check pull-right remember-me">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
@@ -52,7 +63,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-4 pull-right">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
@@ -64,10 +75,23 @@
                                 @endif
                             </div>
                         </div>
+                        @if (Route::has('register'))
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4 pull-right">
+                                <span>Do not have an account? </span>
+                                <a href="{{ route('register') }}" class="btn btn-success">
+                                    {{ __('register') }}
+                                </a>
+                            </div>
+                        </div>
+                        @endif
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section('javascripts')
+    @parent
+@endsection
 @endsection

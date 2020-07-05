@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Sitesetting;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if(\Request::segment(1) =='admin-45659-back')
+        {
+        }
+        else
+        {
+            $appsetting = Sitesetting::first();
+
+            view()->share(compact('appsetting'));
+        }
     }
 }
