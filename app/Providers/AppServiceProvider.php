@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(\Request::segment(1) =='admin-45659-back')
+        if(\Request::segment(1) =='admins')
         {
         }
         else

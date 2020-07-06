@@ -1,0 +1,400 @@
+/* your styles go here */
+.nav-link.logout {
+	border: none;
+	background-color: #393836;
+	color: #fff;
+	font-size: .8rem;
+	font-family: "Roboto", sans-serif;
+}
+.select2 {
+	width:100%!important;
+}
+.admin-sidebar-custom{
+	border-left: 1px solid #f1f1f1; 
+	border-radius: 5px;
+}
+.admin-sidebar-add-option{
+	font-size: 12px;
+	font-weight: 400;
+}
+.admin-sidebar-add-option:hover{
+	color: #33b35a;
+	cursor: pointer;
+}
+#brand-menu,#cat-menu{
+	margin: 10px 0;
+}
+.admin-submit-btn{
+	position: fixed; 
+	bottom: 5px; z-index:999; 
+	background-color:rgb(91%, 93%, 94%,.5); 
+	border-radius: 5px; 
+	padding: 10px; 
+	align-items: center;
+}
+.admin-actions a, .admin-actions span, .admin-actions button{
+	margin: 1px;
+	font-size: 16px;
+	border: 1px solid #BBB;
+	border-radius: 2px;
+	padding: 0 5px;
+	background: none;
+	cursor: pointer;
+	margin: 0 5px;
+}
+.admin-actions a:hover, .admin-actions span:hover, .admin-actions button:hover{
+	border: 1px solid #FFBD00;
+	border-radius: 2px;
+}
+.dellink{
+	border:none;
+	background: none;
+	color: tomato;
+}
+.showlink{
+	color: #FFBD00;
+}
+.editlink{
+	color: #87D9ED;
+}
+.dellink:hover,.showlink:hover,.editlink:hover,.previewlink:hover{
+	color: orange;
+}
+.attributeform{
+	margin-top: 20px;
+}
+.image-indv{
+	margin-top:10px ;
+}
+.del-product-image{
+	color: tomato;
+	font-weight: 600;
+	cursor: pointer;
+}
+.cool-products, .highlight-td{
+	cursor: pointer;
+	font-weight: 600;
+}
+.cool-yes{
+	padding: 0 5px;
+	color: #33b35a;
+	border: 1px solid #BBB;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.cool-no{
+	padding: 0 5px;
+	color: tomato;
+	border: 1px solid #BBB;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.cool-yes:hover, .cool-no:hover{
+	border: 1px solid #FFBD00;
+}
+.pagination-total{
+	color: #33b35a;
+	font-size: 12px;
+}
+.home-display{
+	cursor: pointer;
+    font-weight: 600;
+}
+.change-button{
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 5px;
+    font-size: 10px;
+}
+.change-button-green
+{
+    background-color: #33b35a;
+}
+.change-button-green:hover{
+	color: #fff;
+	text-decoration: none;
+	background-color: #288b46;
+}
+.change-button-blue
+{
+	background-color: #17a2b8;
+}
+.change-button-blue:hover
+{
+	color: #fff;
+	text-decoration: none;
+	background-color: #138496;
+}
+.change-button-yellow
+{
+	background-color: #ffc107;
+}
+.change-button-yellow:hover
+{
+	color: #fff;
+	text-decoration: none;
+	background-color: #e0a800;
+}
+.change-button-red
+{
+	background-color: #dc3545;
+}
+.change-button-red:hover
+{
+	color: #fff;
+	text-decoration: none;
+	background-color: #c82333;
+}
+.status{
+	border: 1px solid #bbb;
+	padding: 5px;
+	border-radius: 2px;
+	background-color: #f1f1f1;
+	cursor: pointer;
+}
+.status-close, .at-delete{
+	color: #dc3545;
+	font-weight: 600;
+	font-size: 18px;
+}
+.status-close:hover{
+	color: #c82333;
+}
+.status-add{
+	color: #33b35a;
+	font-weight: 600;
+	cursor: pointer;
+	font-size: 20px;
+}
+.status-add:hover{
+	color: #288b46;
+}
+#statusName{
+	font-weight: 600;
+}
+.info-note-text{
+	display: block;
+	color: #bbb;
+	font-size: 12px;
+}
+.item-buttons {
+    margin-bottom: -25px;
+    z-index: 99;
+}
+.select2 .selection{
+	min-width: 100%;
+}
+.form-error{
+	color: tomato !important;
+	display: block !important;
+	font-size: 14px;
+	font-weight: 500;
+}
+.supplier-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.supplier-list li{
+    margin: 0;
+    padding: 5px;
+    background-color: #bbb;
+    border-bottom: 1px solid #33b35a;;
+    cursor: pointer;
+}
+.supplier-list li:hover{
+	background-color: #f1f1f1;
+}
+.small-cols{
+	max-width: 50px; 
+	font-size: 12px; 
+	text-decoration: none; 
+	font-weight: 200
+}
+.at-delete{
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.logout {
+	border: none;
+	background-color: none;
+	color: #fff;
+	font-size: .8rem;
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+	padding: 5px 10px;
+}
+.logout button{
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	color: #666;
+	font-size: 1rem;
+}
+.logout button:hover
+{
+	color:#dc3545 !important;
+}
+.app-theme{
+	color: #D23929;
+}
+
+
+.admin-actions a{
+	margin: 5px;
+	font-size: 16px;
+}
+
+.admin-content-seperator{
+	display: block;
+	margin: 30px 0 10px 0;
+	border-bottom: 2px solid #f1f1f1;
+	font-style: italic;
+	font-size: 16px;
+}
+
+.close-btn
+{
+	color: tomato;
+	cursor: pointer;
+}
+.new-heading
+{
+	border: 2px solid #f1f1f1;
+	margin:10px;
+}
+.action-links
+{
+	margin-bottom: 5px;
+}
+.action-links a
+{
+	background-color: #17a2b8;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 5px;
+}
+.action-links a:hover
+{
+	color: #fff;
+	text-decoration: none;
+	background-color: #138496;
+	display: inline;
+}
+.action-links .trashlink
+{
+	background-color: #dc3545;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin: 5px;
+}
+.action-links .trashlink:hover
+{
+	color: #fff;
+	text-decoration: none;
+	background-color: #c82333;
+	display: inline;
+}
+.admin-actions .change-button
+{
+	font-size: 10px;
+}
+.head-add-spec
+{
+	color: #33b35a;
+	cursor: pointer;
+}
+.product-heading-flex
+{
+	margin: 5px 0;
+    padding: 15px;
+    border: 5px solid #f1f1f1;
+    border-radius: 10px;
+}
+.color-sample .sample-ele
+{
+	height: 30px;
+	width: 30px;
+	border: 1PX solid #bbb;
+}
+
+.sample-ele {
+	min-width: 10px !important;
+}
+.delete-link
+{
+	color: #dc3545;	
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 20px;
+	padding: 5px 10px;
+	border-radius: 5px;
+}
+.delete-link:hover
+{
+	color: #c82333;
+	border:1px solid #e0a800;
+}
+
+.slug-form
+{
+	display: none;
+}
+
+.profile-item .dropdown-item a
+{
+	color: #666 !important;
+	text-decoration: none;
+}
+.profile-item .dropdown-item a:hover
+{
+	color:#28a745 !important;
+}
+.copy-text
+{
+	text-align: center;
+}
+
+/* ------------------------------Scroll Top------------------------------------ */
+
+
+/****************************************
+  IMPORTANT 
+*****************************************/
+
+.scrollTop {
+  position: fixed;
+  right: 10%;
+  bottom: 10px;
+  background-color: #BE3F48;
+  padding: 20px;
+  opacity: 0;
+  transition: all 0.4s ease-in-out 0s;
+  cursor: pointer;
+}
+
+.scrollTop a {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* --------------------------Scroll Top End------------------------ */
+
+.admin-header h2{
+	display: inline-block;
+	border-bottom: 2px solid #F44336; 
+	margin-bottom: 30px;
+}
+
+.user-name{
+	 width:60%;
+}
