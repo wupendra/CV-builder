@@ -18,7 +18,7 @@
         </tr>
         <tr>
             <th>Address</th>
-            <td>{{ $user->location->address }}, {{ $user->location->postal_code }}, {{ $user->location->city }}, {{ $user->location->region?$user->location->region.' region,':'' }} {{ $user->location->country_code }}</td>
+            <td>@if($user->location()->exists()) {{ $user->location->address }}, {{ $user->location->postal_code }}, {{ $user->location->city }}, {{ $user->location->region?$user->location->region.' region,':'' }} {{ $user->location->country_code }}@endif</td>
         </tr>
         <tr>
             <th>Profession</th>

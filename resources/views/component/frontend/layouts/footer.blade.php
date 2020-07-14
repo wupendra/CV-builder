@@ -30,6 +30,8 @@
                         <li><a href="#">About Us</a></li>
                         <li><a href="{{ route('frontend.theme.list') }}">Themes</a></li>
                         <li><a href="#">Support</a></li>
+                        <li><a href="{{ route('frontend.terms.conditon') }}">Terms and Condition</a></li>
+                        <li><a href="{{ route('frontend.privacy.policy') }}">Privacy Policy</a></li>
                         </ul>
                     </div><!--section-foot-->
                     

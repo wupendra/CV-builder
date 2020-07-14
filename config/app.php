@@ -177,6 +177,7 @@ return [
 
         //additional providers
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'HTML'      => 'Collective\Html\HtmlFacade',
         'Resize'=> App\Library\ResizeImage::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

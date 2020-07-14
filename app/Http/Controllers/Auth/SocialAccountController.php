@@ -61,12 +61,12 @@ class SocialAccountController extends Controller
             $user = User::create([  
                 'email' => $providerUser->getEmail(),
                 'name'  => $providerUser->getName(),
-                'avatar'  => $providerUser->getAvatar(),
+                'picture'  => $providerUser->getAvatar(),
             ]);
         }
         else
         {
-        	$user->avatar = $providerUser->getAvatar();
+        	$user->picture = $providerUser->getAvatar();
         	$user->save();
         }
         $user->accounts()->create([

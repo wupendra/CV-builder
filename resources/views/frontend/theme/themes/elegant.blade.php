@@ -1018,7 +1018,7 @@
                <div class="card profile-card">
                   <span class="profile-pic-container">
                       <div class="profile-pic">
-                        <img class="media-object img-circle center-block" data-src="holder.js/100x100" alt="{{ $user->name }}" src="{{ !empty($user->picture)?'/uploads/avatars/'.$user->picture:'/img/avatar.jpg' }}" itemprop="image"/></div>
+                        <img class="media-object img-circle center-block" data-src="holder.js/100x100" alt="{{ $user->name }}" src="{{ !empty($user->picture)?asset('uploads/avatars/'.$user->picture):'/img/avatar.jpg' }}" itemprop="image"/></div>
                       <div class="name-and-profession text-center">
                         <h3 itemprop="name"><b>{{ $user->name }}</b></h3>
                         <h5 class="text-muted" itemprop="jobTitle">{{ $user->label }}</h5>
@@ -1053,6 +1053,7 @@
                     </div>
                   </div>
                   <hr/>
+                  @if($user->profiles()->exists())
                   <div class="social-links text-center">
                     <div>
                       @forelse($user->profiles as $profile)
@@ -1061,6 +1062,7 @@
                       @endforelse
                     </div>
                   </div>
+                  @endif
                </div>
             </section>
             <section class="col-md-9 card-wrapper pull-right">
@@ -1091,7 +1093,7 @@
                                     <p class="text-muted">
                                       <small>
                                         <span class="space-right">{{ !empty($work->start_date)?$work->start_date->format('F Y'):'' }} - {{ !empty($work->end_date)?$work->end_date->format('jS F Y'):'Present' }}</span>
-                                        <span><i class="icon-clock mr-5"></i>@if(empty($work->end_date)){{ $work->end_date=Carbon\Carbon::now() }} @endif {{ $diff = $work->start_date->diffInMonths($work->end_date) }} {{ $diff/12>0?($diff/12).' Year '.($diff%12).' Month':$diff.' Month'}}</span>
+                                        <span><i class="icon-clock mr-5"></i>{{ $work->period }}</span>
                                       </small>
                                     </p>
                                     <div class="mop-wrapper space-bottom">
@@ -1197,7 +1199,7 @@
                                  <li class="card card-nested">
                                     <div class="content">
                                        <p class="clear-margin relative"><strong>{{ $volunteer->position }}, </strong><a href="{{ !empty($volunteer->website)?$volunteer->website:'javascript:void(0)' }}" target="_blank">{{ $volunteer->organization }}</a></p>
-                                       <p class="text-muted"><small>{{ $volunteer->start_date->format('jS F Y') }} - {{ !empty($volunteer->end_date)?$volunteer->end_date->format('jS F Y'):'Present' }}</small></p>
+                                       <p class="text-muted"><small>{{ $volunteer->start_date->format(' F Y') }} - {{ !empty($volunteer->end_date)?$volunteer->end_date->format(' F Y'):'Present' }}</small></p>
                                        <div class="mop-wrapper">
                                           <p>{{ $volunteer->summary }}</p>
                                        </div>

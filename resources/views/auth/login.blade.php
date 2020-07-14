@@ -19,6 +19,20 @@
                 </div>
 
                 <div class="col-md-12">
+                        <div class="form-group row mb-0">
+                            <label class="col-md-4 col-form-label text-md-right">Sign In Using:</label>
+                            <div class="col-md-8 offset-md-4 pull-right social-login-card">
+                                <a href="/login/facebook" class="btn btn-info">Facebook <i class="fa fa-facebook"></i></a>
+                                <a href="/login/google" class="btn btn-danger">Google Account <i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-12" >
+                    <h4 style="text-align: center;">OR</h4>
+                    <hr>
+                </div>
+                            
+                <div class="col-md-12">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

@@ -3,7 +3,7 @@
 <html>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<title>Richard Hendriks</title>
+	<title>{{ $user->name }}</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic' rel='stylesheet' type='text/css'>
 	<style>
@@ -528,8 +528,8 @@ h2.section-title {
 		<div id="resume">
 				<header id="header">
 						<div>
-							<h1 class="name">Richard Hendriks</h1>
-							<h2 class="label">Programmer</h2>
+							<h1 class="name">{{ $user->name }}</h1>
+							<h2 class="label">{{ $user->label }}</h2>
 						</div>
 
 				</header>
@@ -539,59 +539,56 @@ h2.section-title {
 						<div id="location">
 							<span class="fa fa-map-marker"></span>
 							<span class="address">
-								2712 Broadway St,
+								{{ $user->location->address?? $user->loacation->address }},
 							</span>
 							<span class="postalCode">
-								CA 94115,
+								{{ $user->location->postal_code??$user->location->postal_code}},
 							</span>
 							<span class="city">
-								San Francisco
+								{{ $user->location->city??$user->location->city}},
 							</span>
 							<span class="countryCode">
-								(US),
+								({{ $user->location->country_code??$user->location->country_code}}),
 							</span>
 							<span class="region">
-								California
+								{{ $user->location->region??$user->location->region}}
 							</span>
 						</div>
 
 					<div id="contact">
 						<div class="website">
-							<a href="http://richardhendricks.com">http://richardhendricks.com</a>
+							<a href="{{ $user->website }}">{{ $user->website }}</a>
 						</div>
 						<div class="email">
 							<span class="fa fa-envelope"></span>
-							<a href="mailto:richard@valley.com">richard@valley.com</a>
+							<a href="{{ $user->email }}">{{ $user->email }}</a>
 						</div>
 						<div class="phone">
 							<span class="fa fa-phone-square"></span>
-							(912) 555-4321
+							{{ $user->phone }}
 						</div>
 					</div>
 
-
+					@if($user->profiles()->exists())
 					<div id="profiles">
+						@foreach($user->profiles as $profile)
 						<div class="item">
-							<span class="network fa fa-twitter twitter"></span>
-							<span class="username">
-									neutralthoughts
-							</span>
-						</div>
-						<div class="item">
-							<span class="network fa fa-soundcloud soundcloud"></span>
+							<span class="fa fa-{{ $profile->network }} {{ $profile->network }}"></span>
 							<span class="username">
 								<span class="url">
-									<a href="https://soundcloud.com/dandymusicnl">dandymusicnl</a>
+									<a href="{{ $profile->url }}" target="_blank">{{ $profile->username }}</a>
 								</span>
 							</span>
 						</div>
+						@endforeach
 					</div>
+					@endif
 				</section>
 
 				<section class="section main-summary">
 					<h2 class='section-title'>About</h2>
 					<section>
-						<p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p>
+						<p>{{ $user->summary }}</p>
 					</section>
 				</section>
 
@@ -600,125 +597,147 @@ h2.section-title {
 				<section class="section">
 					<h2 class='section-title'>Experience</h2>
 					<section id="work">
+						@forelse($user->works as $work)
 						<header>
 							<h3 class="name">
-								Pied Piper
+								{{ $work->company }}
 							</h3>
 							<div class="date">
 								<span class="startDate">
-									December 2013
+									{{ !empty($work->start_date)?$work->start_date->format('F Y'):'' }}
 								</span>
 								<span class="endDate">
-									- December 2014
+									- {{ !empty($work->end_date)?$work->end_date->format('F Y'):'Present' }}
 								</span>
 							</div>
 						</header>
 						<div class="item">
-						<div class="position">
-							CEO/President
+							<div class="position">
+								{{ $work->position }}
+							</div>
+							@if(!empty($work->website))
+							<div class="website">
+								<a href="{{ $work->website }}" target="_blank">{{ $work->website }}</a>
+							</div>
+							@endif
+							<div class="summary">
+								<p>{{ $work->summary }}</p>
+							</div>
+							<ul class="highlights">
+								@forelse($work->highlights as $high)
+								<li>{{ $high }}</li>
+								@empty
+								@endforelse
+							</ul>
 						</div>
-						<div class="website">
-							<a href="http://piedpiper.com">http://piedpiper.com</a>
-						</div>
-						<div class="summary">
-							<p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p>
-						</div>
-						<ul class="highlights">
-							<li>Build an algorithm for artist to detect if their music was violating copy right infringement laws</li>
-							<li>Successfully won Techcrunch Disrupt</li>
-							<li>Optimized an algorithm that holds the current world record for Weisman Scores</li>
-						</ul>
-					</div>
+						@empty
+						@endforelse
 					</section>
 				</section>
 
 				<section class="section">
 					<h2 class='section-title'>Education</h2>
 					<section id="education">
+						@forelse($user->educations as $education)
 							<header>
 									<h3 class="institution">
-										University of Oklahoma
+										{{ $education->institution }}
 									</h3>
 								<div class="date">
 									<span class="startDate">
-										2011
+										{{ $education->start_date->format('Y') }}
 									</span>
 									<span class="endDate">
-										- 2014
+										- {{ !empty($education->end_date)?$education->end_date->format(' Y'):'Ongoing' }}
 									</span>
 								</div>
 							</header>
 							<div class="item">
 									<div class="studyType">
-										Bachelor
+										{{ $education->study_type }}
 									</div>
 									<div class="area">
-										Information Technology
+										{{ $education->area}}
 									</div>
 									<div>
 										<span class="fa fa-graduation-cap"></span>
-										<span class='gpa'> GPA: 4.0</span>
+										<span class='gpa'> GPA: {{ $education->gpa }}</span>
 									</div>
 									<ul class="courses">
-										<li>DB1101 - Basic SQL</li>
-										<li>CS2011 - Java Introduction</li>
+										@forelse($education->courses as $course)
+										<li>{{ $course }}</li>
+										@empty
+										@endforelse
 									</ul>
 							</div>
+						@empty
+						@endforelse
 					</section>
 				</section>
 
-
+				@if($user->volunteers()->exists())
 				<section class="section">
 					<h2 class='section-title'>Volunteer</h2>
 					<section id="volunteer">
-								<header>
-									<h3 class="company">
-										CoderDojo
-									</h3>
-									<div class="date">
-										<span class="startDate">
-											January 2012
-										</span>
-										<span class="endDate">
-											- January 2013
-										</span>
-								</header>
+						@foreach($user->volunteers as $volunteer)
+							<header>
+								<h3 class="company">
+									{{ $volunteer->organization }}
+								</h3>
+								<div class="date">
+									<span class="startDate">
+										{{ $volunteer->start_date->format('F Y') }}
+									</span>
+									<span class="endDate">
+										- {{ !empty($volunteer->end_date)?$volunteer->end_date->format('F Y'):'Present' }}
+									</span>
+							</header>
 							<div class="item">
-							<div class="position">
-								Teacher
+								<div class="position">
+									{{ $volunteer->position }}
+								</div>
+								@if(!empty($volunteer->website))
+								<div class="website">
+									<a href="{{ $volunteer->website }}" target="_blank">{{ $volunteer->website }}</a>
+								</div>
+								@endif
+								<div class="summary">
+									<p>{{ $volunteer->summary }}</p>
+								</div>
+								<ul class="highlights">
+									@forelse($volunteer->highlights as $high)
+									<li>{{ $high }}</li>
+									@empty
+									@endforelse
+								</ul>
 							</div>
-							<div class="website">
-								<a href="http://coderdojo.com/">http://coderdojo.com/</a>
-							</div>
-							<div class="summary">
-								<p>Global movement of free coding clubs for young people.</p>
-							</div>
-							<ul class="highlights">
-								<li>Awarded &#x27;Teacher of the Month&#x27;</li>
-							</ul>
-						</div>
+						@endforeach
 					</section>
 				</section>
-
+				@endif
+				@if($user->awards()->exists())
 				<section class="section">
 					<h2 class='section-title'>Awards</h2>
 					<section id="awards">
+						@foreach($user->awards as $award)
 						<div class="date">
-							1 November 2014
+							{{ !empty($award->date)?$award->date->format('jS F Y'):'' }}
 						</div>
 						<div class="item">
 							<div class="title">
-								Digital Compression Pioneer Award
+								{{ $award->title }}
 							</div>
 							<div class="awarder">
-								Techcrunch
+								{{ $award->awarder }}
 							</div>
 							<div class="summary">
-								<p>There is no spoon.</p>
+								<p>{{ $award->summary }}</p>
 							</div>
 						</div>
+						@endforeach
 					</section>
 				</section>
+				@endif
 
 				<section class="section">
 					<h2 class='section-title'>Publications</h2>
@@ -741,83 +760,84 @@ h2.section-title {
 							</div>
 					</section>
 				</section>
-
+				@if($user->skills()->exists())
 				<section class="section">
 					<h2 class='section-title'>Skills</h2>
 					<section id="skills">
+						@forelse($user->skills as $skill)
 						<div class="item">
 							<div class="name">
-								Web Development
+								{{ $skill->name }}
 							</div>
-							<div class="level master">
-								<em>Master</em>
+							<div class="level {{ $skill->level }}">
+								<em>{{ $skill->level }}</em>
 								<div class="bar"></div>
 							</div>
 							<ul class="keywords">
-								<li>HTML</li>
-								<li>CSS</li>
-								<li>Javascript</li>
+								@forelse($skill->keywords as $key)
+								<li>{{ $key }}</li>
+								@empty
+								@endforelse
 							</ul>
 						</div>
-						<div class="item">
-							<div class="name">
-								Compression
-							</div>
-							<div class="level master">
-								<em>Master</em>
-								<div class="bar"></div>
-							</div>
-							<ul class="keywords">
-								<li>Mpeg</li>
-								<li>MP4</li>
-								<li>GIF</li>
-							</ul>
-						</div>
+						@endforeach
 					</section>
 				</section>
-
+				@endif
+				@if($user->languages()->exists())
 				<section class="section">
 					<h2 class='section-title'>Languages</h2>
 					<section id="languages">
+						@foreach($user->languages as $language)
 						<div class="item">
 							<div class="language">
-								English
+								{{ $language->language }}
 							</div>
 							<div class="fluency">
-								<em>Native speaker</em>
+								<em>{{ $language->fluency }}</em>
 							</div>
 						</div>
+						@endforeach
 					</section>
 				</section>
-
+				@endif
+				@if($user->interests()->exists())
 				<section class="section">
 					<h2 class='section-title' class='section-title'>Interests</h2>
 					<section id="interests">
+						@foreach($user->interests as $interest)
 						<div class="item">
 							<div class="name">
-								Wildlife
+								{{ $interest->name }}
 							</div>
 							<ul class="keywords">
-								<li>Ferrets</li>
-								<li>Unicorns</li>
+								@forelse($interest->keywords as $key)
+								<li>{{ $key }}</li>
+								@empty
+								@endforelse
 							</ul>
 						</div>
+						@endforeach
 					</section>
 				</section>
-
+				@endif
+				@if($user->references()->exists())
 				<section class="section">
 					<h2 class='section-title'>References</h2>
 					<section id="references">
+						@foreach($user->references as $reference)
 						<div class="item">
 							<blockquote class="reference">
-								&#8220;&#32;It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.&#32;&#8221;
+								{{ $reference->reference }}
 							</blockquote>
 							<div class="name">
-								Erlich Bachman
+								{{ $reference->name }}
 							</div>
 						</div>
+						@endforeach
 					</section>
 				</section>
+				@endif
 		</div>
 	</body>
 

@@ -96,6 +96,12 @@ Route::post('/cv-reference-delete', 'AjaxController@deleteReference')->name('fro
 
 //user theme preview
 Route::get('/theme-preview/{theme}', 'ThemeController@themePreview')->name('frontend.user.theme.preview');
+//cv pdf download
+Route::get('generate-pdf/{theme}','PDFController@generatePDF')->name('frontend.generate.pdf');
+
+//terms and policy
+Route::get('terms-and-conditions','HomeController@TermsNConditon')->name('frontend.terms.conditon');
+Route::get('privacy-policy','HomeController@privacyPolicy')->name('frontend.privacy.policy');
 //Frontend Route End...............................................................
 
 //......Social Login Start..................

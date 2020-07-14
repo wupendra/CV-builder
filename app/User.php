@@ -102,4 +102,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Work::class)->orderByRaw("-end_date",'DESC');
     }
+
+    //linked social accounts of the user
+    public function accounts(){
+        return $this->hasMany('App\LinkedSocialAccount');
+    }
 }

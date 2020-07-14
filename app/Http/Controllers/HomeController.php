@@ -27,4 +27,14 @@ class HomeController extends Controller
         $themes = Theme::active(1)->latest()->paginate(9);
         return view('frontend.home',compact('themes'));
     }
+
+    public function TermsNConditon()
+    {
+        return view('frontend.page.terms-and-condition');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('frontend.page.privacy-policy');
+    }
 }
