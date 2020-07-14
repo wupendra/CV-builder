@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Theme;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home');
+        $themes = Theme::active(1)->latest()->paginate(9);
+        return view('frontend.home',compact('themes'));
     }
 }

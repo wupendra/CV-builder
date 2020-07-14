@@ -8,7 +8,7 @@
     <meta name="keyword" charset="utf-8" content="@yield('meta_keyword',$appsetting->meta_keyword)">
     <meta name="description" charset="utf-8" content="@yield('meta_description', $appsetting->meta_description)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<link rel="icon" type="image/png" href="img/ghss-logo-favicon.png">
+	<link rel="icon" type="image/png" href="{{ asset('uploads/home/'.$appsetting->favicon) }}">
     @section('stylesheets')
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">

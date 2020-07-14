@@ -5,15 +5,15 @@
             	<div class="col-sm-5 col-xs-12 left-side-prt">
                 	<div class="quick-links-head">
                     	<span><a href="#">About Us</a></span>
-                        <span><a href="#">Themes</a></span>
+                        <span><a href="{{ route('frontend.theme.list') }}">Themes</a></span>
                     </div><!--quick-links-head-->
                 </div><!--left-side-prt-->
                 
                 <div class="col-sm-7 col-xs-12 right-side-prt">
                 
                 	<div class="right-side-items pull-right">
-                    	<span><i class="fa fa-phone"></i>+977 01 4812345</span>
-                        <span><i class="fa fa-map-marker"></i>Paknajol, Sorakhutte, Kathmandu</span>
+                    	<span><i class="fa fa-phone"></i>{{ $appsetting->contact }}</span>
+                        <span><i class="fa fa-map-marker"></i>{{ $appsetting->address }}</span>
                         
                     </div><!--reg-buttons-->
                     
@@ -44,9 +44,9 @@
                     <div class="collapse navbar-collapse header_main_menu_wrapper">
                     <div class="nav-bar-sec"> 
                       <ul class="nav navbar-nav pull-right navul header-menu">
-                        <li class="cl-effect-3 {{ (Route::is('home')?'active-menu':'') }}"><a class="" href="index.html">Home</a></li>
-                        <li class="cl-effect-3 {{ (Request::is('themes*')) ?  'active-menu'  :''}}"><a href="courses.html">Themes</a></li>
-                        <li class="cl-effect-3 cl-effect-4"><a href="contact.html">Support</a></li>
+                        <li class="cl-effect-3 {{ (Route::is('home')?'active-menu':'') }}"><a class="" href="{{ route('home') }}">Home</a></li>
+                        <li class="cl-effect-3 {{ (Request::is('themes*')) ?  'active-menu'  :''}}"><a href="{{ route('frontend.theme.list') }}">Themes</a></li>
+                        <li class="cl-effect-3 cl-effect-4"><a href="#">Support</a></li>
                         @if(Auth::guard('web')->guest())
                             <li class="cl-effect-3 cl-effect-4"><a href="{{ route('login') }}">Login</a></li>
                             <li class="cl-effect-3 cl-effect-4"><a href="{{ route('register') }}">SignUp</a></li>
@@ -65,7 +65,7 @@
                                 </a>
 
                                 <a href="#">
-                                    My Profile
+                                    My CV
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

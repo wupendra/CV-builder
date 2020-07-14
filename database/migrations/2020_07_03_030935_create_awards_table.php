@@ -18,7 +18,7 @@ class CreateAwardsTable extends Migration
             $table->string('title');
             $table->date('date')->nullable();//date field
             $table->string('awarder');
-            $table->text('summary');
+            $table->string('summary');
             $table->unsignedBigInteger('user_id')->nullable();//foreign key from users table
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

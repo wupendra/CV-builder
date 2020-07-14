@@ -7,12 +7,18 @@
 @section('content')
 <section class="banner-sec">
     <div class="resume-banner" >
-        <img src="img/Resume-Banner.jpg" alt="Resume Banner" class="image-responsive">
+        <img src="@if(isset($appsetting->options['banner'])) {{ asset('uploads/home/'.$appsetting->options['banner']) }} @endif" alt="Resume Banner" class="image-responsive">
         <figcaption>
             
-            <h1>Make My CV</h1>
-            <p>Need a CV to leap to the next step of your career? No problem, we provide CVs in hundered of themes and the best part is, its all for free!!! Select your favourite theme and get the CV the way you want.</p>
-            <div class="btn-sec pull-left"><a href="#">Select Theme</a></div>
+            <h1>{{ $appsetting->app_name }}</h1>
+            <p>@if(isset($appsetting->options['banner_caption'])){{ $appsetting->options['banner_caption'] }} @endif</p>
+            <div class="btn-sec pull-left">
+                @if(auth()->guard('web')->check())
+                    <a href="#">My CV</a>
+                @else
+                    <a href="{{ route('register') }}">Sign Up</a>
+                @endif
+            </div>
         </figcaption>
         
     </div>
@@ -21,216 +27,76 @@
             
             
             
-            <section class="services-sec-main">
-            	<div class="container services-gurkhaa">
-                	
-                    
-                    
-                    <div class="detail-page-wrap">
-                        <div class="col-md-12 service-detail-sec">
-                            <div class="intro-header-sec intro-header-sec-adv">
-                               <h5>Check Out Some</h5>
-                               <h4>Themes We Provide</h4>
-                               <hr align="left" style="width:125px;">
-                            </div>
-                            
-                            <div class="col-md-4 courses-item">
-                            	<img src="img/courses-img-1.jpg" class="img-responsive" />
-                                <div class="feat-courses-watermark">
-                                	Featured
-                                </div>
-                                <figcaption>
-                                	<h5>Security Credintials & Anatomy Full Study</h5>
-                                    <h6>By Mark Zukerberg</h6>
-                                    <div class="extra-icons-sec">
-                                    	<span class="cmt-sec"><i class="fa fa-comment"></i>12</span>
-                                        <span class="cmt-sec"><i class="fa fa-user"></i>9112</span>
-                                        <span class="cmt-sec-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                                    </div><!--extra-icons-sec-->
-                                    <div class="show-more-hidden-btn">
-                                    	<a class="btn btn-default" title="View more" href="course-detail.html">View more</a>
-                                    </div>
-                                </figcaption>
-                            </div><!--courses-item-->
-                            
-                            
-                            <div class="col-md-4 courses-item">
-                            	<img src="img/courses-img-2.jpg" class="img-responsive" />
-                                <div class="sales-courses-watermark">
-                                	Sales
-                                </div>
-                                <figcaption>
-                                	<h5>Security Credintials & Anatomy Full Study</h5>
-                                    <h6>By Mark Zukerberg</h6>
-                                    <div class="extra-icons-sec">
-                                    	<span class="cmt-sec"><i class="fa fa-comment"></i>12</span>
-                                        <span class="cmt-sec"><i class="fa fa-user"></i>9112</span>
-                                        <span class="cmt-sec-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                                    </div><!--extra-icons-sec-->
-                                    <div class="show-more-hidden-btn">
-                                    	<a class="btn btn-default" title="View more" href="course-detail.html">View more</a>
-                                    </div>
-                                </figcaption>
-                            </div><!--courses-item-->
-                            
-                            
-                            <div class="col-md-4 courses-item">
-                            	<img src="img/courses-img-3.jpg" class="img-responsive" />
-                                <div class="feat-courses-watermark">
-                                	Featured
-                                </div>
-                                <figcaption>
-                                	<h5>Security Credintials & Anatomy Full Study</h5>
-                                    <h6>By Mark Zukerberg</h6>
-                                    <div class="extra-icons-sec">
-                                    	<span class="cmt-sec"><i class="fa fa-comment"></i>12</span>
-                                        <span class="cmt-sec"><i class="fa fa-user"></i>9112</span>
-                                        <span class="cmt-sec-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                                    </div><!--extra-icons-sec-->
-                                    <div class="show-more-hidden-btn">
-                                    	<a class="btn btn-default" title="View more" href="course-detail.html">View more</a>
-                                    </div>
-                                </figcaption>
-                            </div><!--courses-item-->
-                            
-                            
-                            <div class="col-md-4 courses-item">
-                            	<img src="img/courses-img-1.jpg" class="img-responsive" />
-                                <div class="feat-courses-watermark">
-                                	Featured
-                                </div>
-                                <figcaption>
-                                	<h5>Security Credintials & Anatomy Full Study</h5>
-                                    <h6>By Mark Zukerberg</h6>
-                                    <div class="extra-icons-sec">
-                                    	<span class="cmt-sec"><i class="fa fa-comment"></i>12</span>
-                                        <span class="cmt-sec"><i class="fa fa-user"></i>9112</span>
-                                        <span class="cmt-sec-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                                    </div><!--extra-icons-sec-->
-                                    <div class="show-more-hidden-btn">
-                                    	<a class="btn btn-default" title="View more" href="course-detail.html">View more</a>
-                                    </div>
-                                </figcaption>
-                            </div><!--courses-item-->
-                            
-                            
-                            <div class="col-md-4 courses-item">
-                            	<img src="img/courses-img-1.jpg" class="img-responsive" />
-                                <div class="feat-courses-watermark">
-                                	Featured
-                                </div>
-                                <figcaption>
-                                	<h5>Security Credintials & Anatomy Full Study</h5>
-                                    <h6>By Mark Zukerberg</h6>
-                                    <div class="extra-icons-sec">
-                                    	<span class="cmt-sec"><i class="fa fa-comment"></i>12</span>
-                                        <span class="cmt-sec"><i class="fa fa-user"></i>9112</span>
-                                        <span class="cmt-sec-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                                    </div><!--extra-icons-sec-->
-                                    <div class="show-more-hidden-btn">
-                                    	<a class="btn btn-default" title="View more" href="course-detail.html">View more</a>
-                                    </div>
-                                </figcaption>
-                            </div><!--courses-item-->
-                            
-                            
-                            <div class="col-md-4 courses-item">
-                            	<img src="img/courses-img-1.jpg" class="img-responsive" />
-                                <div class="feat-courses-watermark">
-                                	Featured
-                                </div>
-                                <figcaption>
-                                	<h5>Security Credintials & Anatomy Full Study</h5>
-                                    <h6>By Mark Zukerberg</h6>
-                                    <div class="extra-icons-sec">
-                                    	<span class="cmt-sec"><i class="fa fa-comment"></i>12</span>
-                                        <span class="cmt-sec"><i class="fa fa-user"></i>9112</span>
-                                        <span class="cmt-sec-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
-                                    </div><!--extra-icons-sec-->
-                                    <div class="show-more-hidden-btn">
-                                    	<a class="btn btn-default" title="View more" href="course-detail.html">View more</a>
-                                    </div>
-                                </figcaption>
-                            </div><!--courses-item-->
-                            
-                            
-                            
-                   		</div><!--service-detail-sec-->
-                        
-                    
-                    
-                    </div><!--detail-page-wrap-->
-                    
-                    
-                    
-                    
-                </div><!--services-gurkhaa-->
-            </section><!--services-sec-->
-
-
-
-			
-
-			
-            
-            
-
-			
-            
-            <section class="thank-you-gurkhaa">
-            	<div class="container slider-gurkhaa-test">
-                	<div class="intro-header-sec">
-                            <h5>SOME OF OUR</h5>
-                            <h4>Thank You Notes</h4>
-                            <hr align="left" style="width:140px;">
-                        </div>
-                    <div id="carousel">
-  <div class="btn-bar">
-    <div id="buttons"><a id="prev" href="#"></a><a id="next" href="#"></a> </div>
-  </div>
-  <div id="slides">
-    <ul>
-      <li class="slide">
-      <div class="authorContainer">
-          <p class="quote-author quote-author2">KHEM KUMAR BHUSAL</p>
-          <p class="disgnation-gurkhaa">Owner of Soltee Hotel</p>
-          <h5></h5>
-      </div>
-      
-        <div class="quoteContainer">
-          <p class="quote-phrase">I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!</p>
-        </div>
+<section class="services-sec-main">
+	<div class="container services-gurkhaa">
+    	
         
-      </li>
-      <li class="slide">
-        <div class="authorContainer">
-          <p class="quote-author quote-author2">KHEM KUMAR BHUSAL</p>
-          <p class="disgnation-gurkhaa">Owner of Soltee Hotel</p>
-          <h5></h5>
-      </div>
-      
-        <div class="quoteContainer">
-          <p class="quote-phrase">I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!</p>
+        
+        <div class="detail-page-wrap">
+            <div class="col-md-12 service-detail-sec">
+                <div class="intro-header-sec intro-header-sec-adv">
+                   <h5>Check Out Some</h5>
+                   <h4>Themes We Provide</h4>
+                   <hr align="left" style="width:125px;">
+                </div>
+                @include('component.frontend.theme.theme-list',['themes'=>$themes])
+       		</div><!--service-detail-sec-->
+        </div><!--detail-page-wrap-->
+    </div><!--services-gurkhaa-->
+</section><!--services-sec-->
+            
+<section class="thank-you-gurkhaa">
+	<div class="container slider-gurkhaa-test">
+    	<div class="intro-header-sec">
+            <h5>SOME OF OUR</h5>
+            <h4>Thank You Notes</h4>
+            <hr align="left" style="width:140px;">
         </div>
-      </li>
-      <li class="slide">
-        <div class="authorContainer">
-          <p class="quote-author quote-author2">KHEM KUMAR BHUSAL</p>
-          <p class="disgnation-gurkhaa">Owner of Soltee Hotel</p>
-          <h5></h5>
-      </div>
-      
-        <div class="quoteContainer">
-          <p class="quote-phrase">I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-                
-                
-                </div><!--slider-gurkhaa-test-->
-            </section><!--testimonial-gurkhaa-->
+        <div id="carousel">
+            <div class="btn-bar">
+                <div id="buttons"><a id="prev" href="#"></a><a id="next" href="#"></a> </div>
+            </div>
+            <div id="slides">
+                <ul>
+                    <li class="slide">
+                        <div class="authorContainer">
+                            <p class="quote-author quote-author2">KHEM KUMAR BHUSAL</p>
+                            <p class="disgnation-gurkhaa">Owner of Soltee Hotel</p>
+                            <h5></h5>
+                        </div>
+          
+                        <div class="quoteContainer">
+                            <p class="quote-phrase">I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!</p>
+                        </div>
+            
+                    </li>
+                    <li class="slide">
+                        <div class="authorContainer">
+                            <p class="quote-author quote-author2">KHEM KUMAR BHUSAL</p>
+                            <p class="disgnation-gurkhaa">Owner of Soltee Hotel</p>
+                            <h5></h5>
+                        </div>
+          
+                        <div class="quoteContainer">
+                            <p class="quote-phrase">I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!</p>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="authorContainer">
+                            <p class="quote-author quote-author2">KHEM KUMAR BHUSAL</p>
+                            <p class="disgnation-gurkhaa">Owner of Soltee Hotel</p>
+                            <h5></h5>
+                        </div>
+          
+                        <div class="quoteContainer">
+                            <p class="quote-phrase">I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+    </div><!--slider-gurkhaa-test-->
+</section><!--testimonial-gurkhaa-->
 
 @section('javascripts')
     @parent

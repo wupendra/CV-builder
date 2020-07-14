@@ -71,8 +71,10 @@ class SitesettingController extends BaseController
     public function update(Sitesetting $sitesetting,Request $request)
     {
        $this->validateRequest();
-        $input = Arr::except($request->all(), array('_token','_method'));
+        $input = Arr::except($request->all(), array('_token','_method','banner','banner_caption'));
         $app_slug = Str::slug($input['app_name'],'-');
+
+        //upload logo of the application
         if($request->hasFile('logo')){
             if(!empty($sitesetting->logo))
             {
@@ -92,6 +94,8 @@ class SitesettingController extends BaseController
             }
             $file->move(public_path() . '/uploads/home/', $input['logo']);
         }
+
+        //upload favicon for the application
         if($request->hasFile('favicon'))
         {
             if(!empty($sitesetting->favicon))
@@ -112,6 +116,32 @@ class SitesettingController extends BaseController
             }
             $file->move(public_path() . '/uploads/home/', $input['favicon']);
         }
+
+        //upload banner for the application
+        if($request->hasFile('banner'))
+        {
+            if(isset($sitesetting->options['banner']) && !empty($sitesetting->options['banner']))
+            {
+                if (file_exists(public_path() . '/uploads/home/'.$sitesetting->options['banner'])) {
+                    $this->delete_image(public_path().'/uploads/home/'.$sitesetting->options['banner']);
+                }
+            }
+            $input['options']['banner'] = array();
+            $file           = $request->file('banner');
+            $ext =$file->getClientOriginalExtension();
+            if (file_exists(public_path() . '/uploads/home/'.$app_slug.'-banner.'.$ext)) 
+            {
+                $input['options']['banner'] = $this->checkFile($app_slug.'-banner',$ext,public_path() . '/uploads/home/');
+            }
+            else
+            {
+                $input['options']['banner'] = $app_slug.'-banner.'.$ext;
+            }
+            $file->move(public_path() . '/uploads/home/', $input['options']['banner']);
+        }
+        elseif(isset($sitesetting->options['banner']))
+            $input['options']['banner'] = $sitesetting->options['banner'];
+        $input['options']['banner_caption'] = $request->get('banner_caption');
         $sitesetting->update($input);
         return redirect()->back()->with('success-msg', 'App Setting Updated Successfully');
     }
@@ -122,11 +152,12 @@ class SitesettingController extends BaseController
             'app_name'=>'required|min:3',
             'meta_keyword'=>'required|min:3',
             'meta_title'=>'required|min:3',
-            'meta_description'=>'required|min:120|max:158',
+            'meta_description'=>'required|min:3|max:158',
             'short_note'=>'required|min:3',
             'mobile'=>'required|min:3',
             'contact'=>'required|min:3',
             'short_note'=>'required|min:3',
+            'banner_caption'=>'required|min:30',
             'admin_email'=>'required|email|min:3'
         ]);
     }

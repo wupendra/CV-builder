@@ -3,12 +3,12 @@
 @section('stylesheets')
     @parent
 @endsection
-@section('content')
 @section('breadcrumb')
 	<li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-home"></i> Dashboard</a></li>
     <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Admin</a></li>
     <li class="breadcrumb-item active">Add Admin</li>
 @endsection
+@section('content')
 <section class="forms">
     <div class="container-fluid">
     	<div class="row">

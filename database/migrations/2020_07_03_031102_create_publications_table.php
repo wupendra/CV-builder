@@ -18,8 +18,8 @@ class CreatePublicationsTable extends Migration
             $table->string('name');
             $table->string('publisher');
             $table->date('release_date')->nullable();//date field
-            $table->string('website');
-            $table->text('summary');
+            $table->string('website')->nullable();
+            $table->string('summary');
             $table->unsignedBigInteger('user_id')->nullable();//foreign key from users table
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

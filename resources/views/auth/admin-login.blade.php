@@ -54,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									   <input id="login-password" type="password" name="password" required data-msg="Please enter your password" class="lock" placeholder="Password">
 									</div>
 									<span class="checkbox2">
-										 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
+										 <label class="checkbox"><input id="show_password" type="checkbox" name="checkbox" ><i> </i></label>
 									</span>
 									<div class="clearfix"> </div>
 								</div>
@@ -79,5 +79,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <script src="/assets/js/jquery.nicescroll.js"></script>
    <script src="/assets/js/bootstrap.min.js"></script>
+   <script type="text/javascript">
+   		//Show typed password if user wants to see what they are typing
+   		$('.checkbox2').on('click','#show_password',function(){
+   			if($(this).is(':checked'))
+   				$('#login-password').attr('type','text');
+   			else
+   				$('#login-password').attr('type','password');
+   		});
+   </script>
 </body>
 </html>

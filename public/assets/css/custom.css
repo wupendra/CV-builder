@@ -398,3 +398,10 @@
 .user-name{
 	 width:60%;
 }
+#key-input{
+	width: 80%;
+}
+
+.admin-body{
+	padding-bottom: 100px;
+}

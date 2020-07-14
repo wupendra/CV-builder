@@ -448,19 +448,16 @@ nav li a:focus {
 
 
 textarea, input[type="text"], input[type="email"], input[type="number"], input[type="password"], input[type="tel"], .select2-search__field, .select2-search input.select2-input, .form-control {
-    background: #f0f2f5 none repeat scroll 0 0;
-    border: 2px solid #f0f2f5;
+    background: #fafafa none repeat scroll 0 0;
+    border: 1px solid #f0f2f5;
     border-radius: 0;
     box-shadow: none !important;
     color: #555;
     display: block;
-    height: 45px;
+    height: 38px;
     line-height: 1.42857;
     padding: 6px 12px !important;
 }
-
-
-
 
 
 .flick-title
@@ -1175,7 +1172,7 @@ font-family: MyriadPro;
 	{
 		text-align:justify;
 		font-family:MyriadPro;
-		font-size:17px;
+		font-size:14px;
 		color:rgba(153,153,153,1);
 	}
 	.sub-headings
@@ -2097,6 +2094,192 @@ textarea {
 .errormsg{
 	color: #dc3545;
 }
-div[data-notify="container"]{
-	z-index: 9999;
+.successmsg{
+	color: #288b46;
 }
+
+/* --------Profile Page--------- */
+.cv-menu{
+	padding: 40px 10px 0 0; 
+}
+.cv-menu a{
+	float: right;
+	border: 1px solid #f1f1f1;
+	margin: 5px;
+	padding: 5px 10px;
+	border-radius: 5px;
+	color: #333;
+}
+.cv-menu a:hover{
+	background-color: rgb(236, 93, 47);
+	color: #fff;
+}
+.cv-ele{
+	margin: 50px 0;
+	min-height: 40px;
+}
+.cv-ele-head{
+	border-bottom: 2px solid #f1f1f1;
+}
+.cv-ele-head h2 {
+	display: inline-block;
+	font-weight: 500;
+	font-size: 18px;
+	font-family:MyriadPro;
+}
+.cv-ele-head h2 i {color:#fc6332; margin-right:5px;}
+
+.cv-ele-head button, .cv-actions button, .btns button {
+	border-radius: 0;
+	margin: 5px;
+	padding:5px 8px;
+	border:none;
+	background:#403e3e;
+	color:#fff;
+	font-family: MyriadPro;
+}
+.cv-ele-body{
+	margin: 5px 0;
+}
+.cv-ele-head button:hover, .cv-actions button:hover, .btns button:hover {
+	background-color: #fc6332;
+	color: #fff;
+}
+.profile-pic{
+	max-width: 250px;
+}
+.cv-ele-body h3{
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 10px;
+	margin: 5px 0;
+	font-family:MyriadPro;
+}
+.cv-ele-body h4{
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 10px;
+	margin: 5px 0;
+	font-family:MyriadPro;
+}
+
+.cv-ele-body h5{
+	font-weight: 500;
+	font-size: 14px;
+	margin: 10px 0;
+	font-family:MyriadPro;
+}
+.work-company{
+	padding: 20px 0;
+}
+.work-ele, .volunteer-ele{
+	margin-bottom: 5px;
+}
+.ele-summary h4{
+	padding: 5px 0;
+}
+.cv-highlight{
+	margin-top: 15px;
+}
+.cv-highlight p{
+	padding-left: 20px;
+	margin: 0;
+}
+.cv-highlight li{
+	text-align:justify;
+	font-family:MyriadPro;
+	font-size:14px;
+	color:rgba(153,153,153,1);
+	padding-left: 20px;
+	margin: 0;
+}
+.skill-ele, .interest-ele {
+	padding-bottom: 20px;
+}
+.skill-ele h4, .language-ele h4, .interest-ele h4{
+	display: inline-block;
+}
+.beginner-level{
+	background-color: #e0a800;
+}
+.intermediate-level{
+	background-color: #138496;
+}
+.master-level{
+	background-color: #288b46;
+}
+.lanugage-ele {
+	padding-bottom: 20px;
+}
+.ele-keywords{
+	padding-top: 5px;
+}
+.ele-keywords .badge{
+	margin: 5px 0;
+}
+.language-detail{
+	width: 100%;
+}
+
+/* New Css Classes Defined by Suman */
+.full-width {width:100%;}
+.half-width {width:50%;}
+.qtr-width {width:25%;}
+
+.left {float:left; margin-right:15px !important;}
+
+.cv-ele-personal .container-fluid .col-md-12, .cv-ele-personal .container-fluid .col-md-6 {padding:0 10px 0 0;}
+.cv-ele-personal .container-fluid .col-md-6 {margin-top:10px;}
+
+.abtComp input[type="text"] {margin:5px 0;}
+
+.btns {text-align:right; border-bottom:1px solid #ccc;}
+
+
+
+/* Award */
+#user-award input[type="text"], #user-volunteer input[type="text"], #user-publication input[type="text"], #user-education input[type="text"], #user-profile input[type="text"], #user-reference input[type="text"], #user-reference textarea, #user-interest input[type="text"], #user-interest textarea {margin-bottom:10px; font-weight:normal; font-size:14px;}
+.ele-summary label {line-height:34px;}
+
+/* User Language */
+.user-language select {padding:5px; width:45%; box-sizing: border-box; margin-bottom:10px;}
+
+@media (max-width: 480px) {
+	.half-width {width:100%;}
+	.qtr-width {width:100%;}
+}
+
+@media (max-width: 990px) {
+	.user-interest {padding-top:40px;}
+}
+
+/*Multi Input*/
+.selected-ele{
+	display: inline-block;
+	border: 2px solid #f1f1f1;max-height: 
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-weight: 500;
+	margin: 5px 10px 10px 0;
+}
+.remove-item{
+	background-color: tomato;
+	border-radius: 5px;
+	font-size: 12px;
+	color: #fff;
+	padding: 5px;
+	margin-left: 10px;
+	cursor: pointer; 
+}
+.remove-item:hover{
+	background-color: #c82333;
+}
+
+
+
+
+
+
+
+
+

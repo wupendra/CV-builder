@@ -160,7 +160,7 @@ class AdminController extends BaseController
     {
         return request()->validate([
             'name'=>'required|min:3',
-            'phone'=>'required|numeric|min:1000000000|max:10000000000',
+            'phone'=>'required|numeric',
             'address'=>'required|min:3',
             'email'=>'required|email',
             'password'=>'nullable|min:6',

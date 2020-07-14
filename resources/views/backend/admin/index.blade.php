@@ -33,23 +33,7 @@
 							</tr>
 						</thead>
 						<tbody>
-								@foreach($admins as $index=>$user)
-								<tr>
-									<th scope="row">{{ $index+1 }}</th>
-									<td>{{ link_to_route('admin.show',$user->name,$user->id) }}</td>
-									<td>{{ $user->email }}</td>
-									<td>{{ $user->phone }}</td>
-									<td>@foreach($user->roles as $role) {{ $role }} @endforeach</td>
-									<td>@if($user->avatar){!! HTML::image('/uploads/avatars/'.$user->avatar, '', array('width' => '50','class'=>'form-image')) !!}@endif</td>
-									<td>{{ $user->active?'Yes':'No' }}</td>
-									<th>
-										{!! Form::open(array('class' => 'form-inline admin-actions', 'method' => 'DELETE', 'route' => array('admin.destroy', $user->id) )) !!}
-											<a href="{{ route('admin.edit',$user->id) }}" class="editlink" title="Edit"><i class="fa fa-edit"></i></a>
-											<button type="submit" class="dellink" title="Delete" onClick="javascript:if(confirm('Are you sure you want to delete this User?')){ return true;}else{ return false; }" ><i class="fa fa-trash-o"></i></button>
-			                			{!! Form::close() !!}
-									</th>
-								</tr>
-								@endforeach
+							@include('component.backend.admin.admin-list',['admins'=>$admins])
 						</tbody>
 					</table>
 				</div>

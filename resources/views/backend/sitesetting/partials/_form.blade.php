@@ -115,8 +115,24 @@
         <div class="col-sm-6">
             <span class="form-info">Favicon item must be square</span><br/>
             @isset($sitesetting)
-            {!! Html::image('/uploads/home/'.$sitesetting->favicon) !!}
+            {!! Html::image('/uploads/home/'.$sitesetting->favicon,'', ['width' => 150]) !!}
             @endisset
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {!! Form::label('banner', 'Home Banner:') !!}
+            {!! Form::file('banner', null) !!}
+        </div>
+        <div class="col-sm-6">
+            <span class="form-info"></span><br/>
+            @isset($sitesetting->options['banner'])
+            {!! Html::image('/uploads/home/'.$sitesetting->options['banner'],'', ['width' => 150]) !!}
+            @endisset
+        </div>
+        <div class="form-group col-md-6">
+            {!! Form::label('banner_caption', 'Caption for the banner: ') !!}
+            {!! Form::textarea('banner_caption', isset($sitesetting) && isset($sitesetting->options['banner_caption'])?$sitesetting->options['banner_caption']:'' ,['class' => 'form-control']) !!}
         </div>
     </div>
 </div>

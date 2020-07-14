@@ -21,7 +21,7 @@ class CreateVolunteersTable extends Migration
             $table->date('start_date')->nullable();//date field
             $table->date('end_date')->nullable();//date field
             $table->text('summary');
-            $table->string('highlights');
+            $table->json('highlights');
             $table->unsignedBigInteger('user_id')->nullable();//foreign key from users table
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

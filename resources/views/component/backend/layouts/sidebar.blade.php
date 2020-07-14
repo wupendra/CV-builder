@@ -33,6 +33,14 @@
 									<li class=""><a href="">Active Users</a></li>
 								</ul>
 						</li>
+						<li class="menu-list {{ (Request::is('admins/theme*')) ?  'nav-active'  :''}}">
+							<a href="#"><i class="fa fa-picture-o"></i>
+								<span>Themes <i class="fa fa-angle-down"></i></span></a>
+								<ul class="sub-menu-list">
+									<li class="{{ (Request::is('admins/theme')) ?  'active'  :''}}"><a href="{{ route('theme.index') }}">List Themes</a> </li>
+									<li class="{{ (Request::is('admins/theme/create')) ?  'active'  :''}}"><a href="{{ route('theme.create') }}">Add Theme</a></li>
+								</ul>
+						</li>
 						<li><a href="{{ route('sitesetting.index') }}"><i class="lnr lnr-cog"></i> <span>App Settings</span></a></li>
 					</ul>
 				<!--sidebar nav end-->

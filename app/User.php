@@ -36,4 +36,70 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //User has many awards
+    public function awards()
+    {
+        return $this->hasMany(Award::class);
+    }
+
+    //user has many education
+    public function educations()
+    {
+        return $this->hasMany(Education::class);
+    }
+
+    //User has many interests
+    public function interests()
+    {
+        return $this->hasMany(Interest::class);
+    }
+
+    //User has many languages
+    public function languages()
+    {
+        return $this->hasMany(Language::class);
+    }
+
+    //User has one location
+    public function location()
+    {
+        return $this->hasOne(Location::class);
+    }
+
+    //User has many profiles
+    public function profiles()
+    {
+        return $this->hasMany(Profile::class);
+    }
+
+    //User has many publications
+    public function publications()
+    {
+        return $this->hasMany(Publication::class);
+    }
+
+    //User has many references
+    public function references()
+    {
+        return $this->hasMany(Reference::class);
+    }
+
+    //User has many skills
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    //User has many volunteers
+    public function volunteers()
+    {
+        return $this->hasMany(Volunteer::class);
+    }
+
+    //User has many works
+    public function works()
+    {
+        return $this->hasMany(Work::class)->orderByRaw("-end_date",'DESC');
+    }
 }

@@ -41,6 +41,19 @@
                                 <div class="errormsg">{{ $errors->first('email') }}</div>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">Username*</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
+                                <div class="input-group-append">
+                                    <button type="button" id="checkUsername" class="btn btn-success">Check</button>
+                                </div>
+                                <small>Usernames are unique names, can only contain alphabets, numbers and underscore.</small>
+
+                                <div class="u-alert">{{ $errors->first('username') }}</div>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}*</label>
@@ -99,7 +112,45 @@
 @section('javascripts')
     @parent
     <script type="text/javascript">
-
+        $('#checkUsername').on('click',function(){
+            var name = $('#username').val();
+            var nick = new RegExp('^[a-zA-Z0-9_]+$');
+            if(nick.test(name)){
+                ele = $(this);
+                $.ajax({
+                    type: 'POST',
+                    data:{'_token': '{{ csrf_token() }}','name':name},
+                    url: '{{ route("frontend.check.username") }}',
+                    success: function (data) {
+                        console.log(data);
+                        if(data==0){
+                            console.log('here');
+                            $(ele).parent('div').siblings('.u-alert').removeClass('errormsg');
+                            $(ele).parent('div').siblings('.u-alert').addClass('successmsg');
+                            $(ele).parent('div').siblings('input').removeClass('is-invalid');
+                            $(ele).parent('div').siblings('.u-alert').text('The Username is available.');
+                        }
+                        else{
+                            $(ele).parent('div').siblings('.u-alert').removeClass('successmsg');
+                            $(ele).parent('div').siblings('input').addClass('is-invalid');
+                            $(ele).parent('div').siblings('.u-alert').addClass('errormsg');
+                            $(ele).parent('div').siblings('.u-alert').text('The Username is taken.');
+                        }
+                        $('#ajaxLoading').modal('hide');
+                    },
+                    error: function (data) {
+                        console.log('Error:', data);
+                        $('#ajaxLoading').modal('hide');
+                    }
+                });
+            }
+            else{
+                $(this).parent('div').siblings('.u-alert').removeClass('successmsg');
+                $(this).parent('div').siblings('input').addClass('is-invalid');
+                $(this).parent('div').siblings('.u-alert').addClass('errormsg');
+                $(this).parent('div').siblings('.u-alert').text('Username can only contain alphabets, numbers and underscore.');
+            }
+        });
         function isEmail(email) {
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             return regex.test(email);
@@ -144,6 +195,51 @@
             else{
                 $('#email').removeClass('is-invalid');
                 $('#email').siblings('.errormsg').text('');
+            }
+            if($('#username').val()==''){
+                $('#username').addClass('is-invalid');
+                $('#username').siblings('.u-alert').text('Username cannot be empty.');
+                val = false;
+            }
+            else{
+                var name = $('#username').val();
+                var nick = new RegExp('^[a-zA-Z0-9_]+$');
+                if(nick.test(name)){
+                    ele = $('#username');
+                    $.ajax({
+                        type: 'POST',
+                        data:{'_token': '{{ csrf_token() }}','name':name},
+                        url: '{{ route("frontend.check.username") }}',
+                        success: function (data) {
+                            //console.log(data);
+                            if(data==0){
+                                //console.log('here');
+                                $(ele).siblings('.u-alert').removeClass('errormsg');
+                                $(ele).siblings('.u-alert').addClass('successmsg');
+                                $(ele).siblings('input').removeClass('is-invalid');
+                                $(ele).siblings('.u-alert').text('The Username is available.');
+                            }
+                            else{
+                                $(ele).siblings('.u-alert').removeClass('successmsg');
+                                $(ele).siblings('input').addClass('is-invalid');
+                                $(ele).siblings('.u-alert').addClass('errormsg');
+                                $(ele).siblings('.u-alert').text('The Username is taken.');
+                                val = false;
+                            }
+                            $('#ajaxLoading').modal('hide');
+                        },
+                        error: function (data) {
+                            console.log('Error:', data);
+                        }
+                    });
+                }
+                else{
+                    $(this).parent('div').siblings('.u-alert').removeClass('successmsg');
+                    $(this).parent('div').siblings('input').addClass('is-invalid');
+                    $(this).parent('div').siblings('.u-alert').addClass('errormsg');
+                    $(this).parent('div').siblings('.u-alert').text('Username can only contain alphabets, numbers and underscore.');
+                    val = false;
+                }
             }
             if($('#password').val()==''){
                 $('#password').addClass('is-invalid');

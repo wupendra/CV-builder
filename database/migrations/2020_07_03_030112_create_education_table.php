@@ -17,7 +17,7 @@ class CreateEducationTable extends Migration
             $table->id();
             $table->string('institution');
             $table->string('area');
-            $table->string('study_type',30);
+            $table->string('study_type',100);
             $table->date('start_date')->nullable();//date field
             $table->date('end_date')->nullable();//date field
             $table->unsignedFloat('gpa',4,2);
