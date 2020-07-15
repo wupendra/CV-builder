@@ -8,7 +8,7 @@
             <span class="cmt-sec-star"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
         </div><!--extra-icons-sec-->
         <div class="show-more-hidden-btn">
-        	<a class="btn btn-default" title="View more" href="#">Preview</a>
+        	<a class="btn btn-default" title="Preview" target="_blank" href="{{ route('frontend.theme.preview',$theme->slug) }}">Preview</a>
         </div>
     </figcaption>
 </div><!--courses-item-->

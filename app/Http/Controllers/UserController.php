@@ -18,12 +18,13 @@ use App\Skill;
 use App\Volunteer;
 use App\Work;
 use Auth;
+use PDF;
 
 class UserController extends Controller
 {
 	public function __construct()
     {
-        $this->middleware('auth:web');
+        $this->middleware('auth:web')->except('viewProfile');
     }
 
     public function index()
@@ -40,5 +41,33 @@ class UserController extends Controller
         $publication = new Publication;
         $reference = new Reference;
     	return view('frontend.user.dashboard',compact('user','work','profile','education','skill','award','language','volunteer','interest','publication','reference'));
+    }
+
+    public function userSettings()
+    {
+
+    }
+
+    public function storeUserSettings()
+    {
+
+    }
+
+    public function viewProfile()
+    {
+
+    }
+
+    //download CV
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generateCv(Theme $theme)
+    {
+        $user = Auth::guard('web')->user();
+        $pdf = PDF::loadView('frontend.theme.themes.'.$theme->slug, compact('user'));
+        return $pdf->stream($user->name.'.pdf');
     }
 }

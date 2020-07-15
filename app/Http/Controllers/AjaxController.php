@@ -132,7 +132,7 @@ class AjaxController extends Controller
     	{
     		$key = str_replace('work-ref', '', $request->get('key'));
     		$user = Auth::guard('web')->user();
-    		$work = $user->works()->findOrFail($key);
+    		$work = $user->work()->findOrFail($key);
     	}
     	else
     	{
@@ -163,7 +163,7 @@ class AjaxController extends Controller
     		$key = str_replace('work-ref','', $request->get('key'));
 	    	if(!empty($key))
 	    	{
-	    		$work = $user->works()->findOrFail((int)$key);
+	    		$work = $user->work()->findOrFail((int)$key);
 	    	}
 	    	else
 	    		$work = new Work;
@@ -186,7 +186,7 @@ class AjaxController extends Controller
     	{
     		$key = str_replace('work-ref', '', $request->get('key'));
     		$user = Auth::guard('web')->user();
-    		$work = $user->works()->findOrFail($key);
+    		$work = $user->work()->findOrFail($key);
     		$work->delete();
     		return response()->json(true);
     	}
@@ -262,7 +262,7 @@ class AjaxController extends Controller
     	if(!empty($key))
     	{
     		$user = Auth::guard('web')->user();
-    		$education = $user->educations()->findOrFail((int)$key);
+    		$education = $user->education()->findOrFail((int)$key);
     	}
     	else
     	{
@@ -297,7 +297,7 @@ class AjaxController extends Controller
     		$key = str_replace('education-ref','', $request->get('key'));
 	    	if(!empty($key))
 	    	{
-	    		$education = $user->educations()->findOrFail((int)$key);
+	    		$education = $user->education()->findOrFail((int)$key);
 	    	}
 	    	else
 	    		$education = new Education;
@@ -320,7 +320,7 @@ class AjaxController extends Controller
     	{
     		$key = str_replace('education-ref', '', $request->get('key'));
     		$user = Auth::guard('web')->user();
-    		$education = $user->educations()->findOrFail($key);
+    		$education = $user->education()->findOrFail($key);
     		$education->delete();
     		return response()->json(true);
     	}
@@ -522,7 +522,7 @@ class AjaxController extends Controller
     	{
     		$key = str_replace('volunteer-ref', '', $request->get('key'));
     		$user = Auth::guard('web')->user();
-    		$volunteer = $user->volunteers()->findOrFail($key);
+    		$volunteer = $user->volunteer()->findOrFail($key);
     	}
     	else
     	{
@@ -553,7 +553,7 @@ class AjaxController extends Controller
     		$key = str_replace('volunteer-ref','', $request->get('key'));
 	    	if(!empty($key))
 	    	{
-	    		$volunteer = $user->volunteers()->findOrFail((int)$key);
+	    		$volunteer = $user->volunteer()->findOrFail((int)$key);
 	    	}
 	    	else
 	    		$volunteer = new Volunteer;
@@ -576,7 +576,7 @@ class AjaxController extends Controller
     	{
     		$key = str_replace('volunteer-ref', '', $request->get('key'));
     		$user = Auth::guard('web')->user();
-    		$volunteer = $user->volunteers()->findOrFail($key);
+    		$volunteer = $user->volunteer()->findOrFail($key);
     		$volunteer->delete();
     		return response()->json(true);
     	}

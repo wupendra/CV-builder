@@ -4,7 +4,7 @@
       <meta charset="utf-8"/>
       <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
       <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <title>{{ $user->name }}</title>
+      <title>Richard Hendriks</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
       <style>@font-face {
          font-family: 'icomoon';
@@ -1017,52 +1017,24 @@
             <section class="col-md-3 card-wrapper profile-card-wrapper affix">
                <div class="card profile-card">
                   <span class="profile-pic-container">
-                      <div class="profile-pic">
-                        <img class="media-object img-circle center-block" data-src="holder.js/100x100" alt="{{ $user->name }}" src="{{ !empty($user->picture)?asset('uploads/avatars/'.$user->picture):'/img/avatar.jpg' }}" itemprop="image"/></div>
-                      <div class="name-and-profession text-center">
-                        <h3 itemprop="name"><b>{{ $user->name }}</b></h3>
-                        <h5 class="text-muted" itemprop="jobTitle">{{ $user->label }}</h5>
-                      </div>
+                     <div class="profile-pic"><img class="media-object img-circle center-block" data-src="holder.js/100x100" alt="Richard Hendriks" src="https://s.gravatar.com/avatar/7e6be1e623fb85adde3462fa8587caf2?s=100&amp;r=pg&amp;d=mm" itemprop="image"/></div>
+                     <div class="name-and-profession text-center">
+                        <h3 itemprop="name"><b>Richard Hendriks</b></h3>
+                        <h5 class="text-muted" itemprop="jobTitle">Programmer</h5>
+                     </div>
                   </span>
                   <hr/>
                   <div class="contact-details clearfix">
-                    <div class="detail">
-                      <span class="icon"><i class="icon fs-lg icon-location"></i></span>
-                      <span class="info">{{ $user->location->address }}, {{ $user->location->postal_code }}, {{ $user->location->city }}, {{ $user->location->region?$user->location->region.' region,':'' }} {{ $user->location->country_code }}</span>
-                    </div>
-                    <div class="detail">
-                      <span class="icon"><i class="icon fs-lg icon-phone"></i></span>
-                      <span class="info" itemprop="telephone">{{ $user->phone }}</span>
-                    </div>
-                    <div class="detail">
-                      <span class="icon"><i class="icon fs-lg icon-mail"></i></span>
-                      <span class="info"><a class="link-disguise" href="mailto:{{ $user->email }}" itemprop="email">{{ $user->email }}</a></span>
-                    </div>
-                    <div class="detail">
-                      <span class="icon"><i class="icon fs-lg icon-link"></i></span>
-                      <span class="info">
-                        <a href="{{ $user->website }}" target="_blank">{{ $user->website }}</a>
-                      </span>
-                    </div>
-                    <div class="detail">
-                      <span class="icon" title="Languages I speak"><i class="icon fs-lg icon-language"></i></span>
-                      @forelse($user->languages as $lan)
-                      <span class="info">{{ $lan->language }}</span>
-                      @empty
-                      @endforelse
-                    </div>
+                     <div class="detail"><span class="icon"><i class="icon fs-lg icon-location"></i></span><span class="info">2712 Broadway St, San Francisco, California, US, CA 94115</span></div>
+                     <div class="detail"><span class="icon"><i class="icon fs-lg icon-phone"></i></span><span class="info" itemprop="telephone">(912) 555-4321</span></div>
+                     <div class="detail"><span class="icon"><i class="icon fs-lg icon-mail"></i></span><span class="info"><a class="link-disguise" href="mailto:richard@valley.com" itemprop="email">richard@valley.com</a></span></div>
+                     <div class="detail"><span class="icon"><i class="icon fs-lg icon-link"></i></span><span class="info"><a href="http://richardhendricks.com" target="_blank">http://richardhendricks.com</a></span></div>
+                     <div class="detail"><span class="icon" title="Languages I speak"><i class="icon fs-lg icon-language"></i></span><span class="info">English</span></div>
                   </div>
                   <hr/>
-                  @if($user->profiles()->exists())
                   <div class="social-links text-center">
-                    <div>
-                      @forelse($user->profiles as $profile)
-                      <a class="fs-2x social-link link-{{ $profile->network }} icon-{{ $profile->network }}" href="{{ $profile->url }}" target="_blank" data-toggle="tooltip" title="{{ $user->name }} on {{ $profile->network }}"></a>
-                      @empty
-                      @endforelse
-                    </div>
+                     <div><a class="fs-2x social-link link-twitter icon-twitter" href="//twitter.com/neutralthoughts" target="_blank" data-toggle="tooltip" title="Richard Hendriks on Twitter"></a><a class="fs-2x social-link link-soundcloud icon-soundcloud" href="https://soundcloud.com/dandymusicnl" target="_blank" data-toggle="tooltip" title="Richard Hendriks on SoundCloud"></a></div>
                   </div>
-                  @endif
                </div>
             </section>
             <section class="col-md-9 card-wrapper pull-right">
@@ -1076,7 +1048,7 @@
                            <h4 class="title text-uppercase">About</h4>
                            <div class="card card-nested">
                               <div class="content mop-wrapper" itemprop="description">
-                                 <p>{{ $user->summary }}</p>
+                                 <p>Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!</p>
                               </div>
                            </div>
                         </div>
@@ -1086,31 +1058,26 @@
                         <div class="info">
                            <h4 class="title text-uppercase">Work Experience</h4>
                            <ul class="list-unstyled clear-margin">
-                            @forelse($user->work as $work)
                               <li class="card card-nested clearfix">
                                  <div class="content">
-                                    <p class="clear-margin relative"><strong>{{ $work->position }}</strong>,&nbsp;<a href="{{ $work->website }}" target="_blank">{{ $work->company }}</a></p>
-                                    <p class="text-muted">
-                                      <small>
-                                        <span class="space-right">{{ !empty($work->start_date)?$work->start_date->format('F Y'):'' }} - {{ !empty($work->end_date)?$work->end_date->format('jS F Y'):'Present' }}</span>
-                                        <span><i class="icon-clock mr-5"></i>{{ $work->period }}</span>
-                                      </small>
-                                    </p>
+                                    <p class="clear-margin relative"><strong>CEO/President</strong>,&nbsp;<a href="http://piedpiper.com" target="_blank">Pied Piper</a></p>
+                                    <p class="text-muted"><small><span class="space-right">Dec, 2013 - Dec, 2014</span><span><i class="icon-clock mr-5"></i>1 year</span></small></p>
                                     <div class="mop-wrapper space-bottom">
-                                       <p>{{ $work->summary }}</p>
+                                       <p>Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.</p>
                                     </div>
                                     <ul>
-                                      @forelse($work->highlights as $high)
                                        <li class="mop-wrapper">
-                                          <p>{{ $high }}</p>
+                                          <p>Build an algorithm for artist to detect if their music was violating copy right infringement laws</p>
                                        </li>
-                                      @empty
-                                      @endforelse
+                                       <li class="mop-wrapper">
+                                          <p>Successfully won Techcrunch Disrupt</p>
+                                       </li>
+                                       <li class="mop-wrapper">
+                                          <p>Optimized an algorithm that holds the current world record for Weisman Scores</p>
+                                       </li>
                                     </ul>
                                  </div>
                               </li>
-                              @empty
-                              @endforelse
                            </ul>
                         </div>
                      </div>
@@ -1120,22 +1087,24 @@
                            <h4 class="title text-uppercase">Skills</h4>
                            <div class="content">
                               <ul class="list-unstyled clear-margin">
-                                @forelse($user->skills as $skill)
                                  <li class="card card-nested card-skills">
-                                    <div class="skill-level" data-toggle="tooltip" title="{{ $skill->level }}" data-placement="left">
-                                       <div class="skill-progress {{ $skill->level }}"></div>
+                                    <div class="skill-level" data-toggle="tooltip" title="Master" data-placement="left">
+                                       <div class="skill-progress master"></div>
                                     </div>
                                     <div class="skill-info">
-                                      <strong>{{ $skill->name }}</strong>
-                                        <div class="space-top labels">
-                                          @if(!empty($skill->keywords))@foreach($skill->keywords as $key)
-                                          <span class="label label-keyword">{{ $key }}</span>
-                                          @endforeach @endif
-                                        </div>
+                                       <strong>Web Development</strong>
+                                       <div class="space-top labels"><span class="label label-keyword">HTML</span><span class="label label-keyword">CSS</span><span class="label label-keyword">Javascript</span></div>
                                     </div>
                                  </li>
-                                 @empty
-                                 @endforelse
+                                 <li class="card card-nested card-skills">
+                                    <div class="skill-level" data-toggle="tooltip" title="Master" data-placement="left">
+                                       <div class="skill-progress master"></div>
+                                    </div>
+                                    <div class="skill-info">
+                                       <strong>Compression</strong>
+                                       <div class="space-top labels"><span class="label label-keyword">Mpeg</span><span class="label label-keyword">MP4</span><span class="label label-keyword">GIF</span></div>
+                                    </div>
+                                 </li>
                               </ul>
                            </div>
                         </div>
@@ -1146,150 +1115,112 @@
                            <h4 class="title text-uppercase">Education</h4>
                            <div class="content">
                               <ul class="list-unstyled clear-margin">
-                                @forelse($user->education as $education)
                                  <li class="card card-nested">
                                     <div class="content">
-                                       <p class="clear-margin relative"><strong>{{ $education->area }}, {{ $education->study_type }},&nbsp;</strong>{{ $education->institution }}</p>
-                                       <p class="text-muted"><small>{{ !empty($education->start_date)?$education->start_date->format('F Y'):'' }} - {{ !empty($education->end_date)?$education->end_date->format('jS F Y'):'Present' }}</small></p>
-                                       <i>{{ $education->gpa }}</i>
-                                       <div class="space-top labels">
-                                          @if(!empty($education->courses)) @foreach($education->courses as $course)
-                                          <span class="label label-keyword">{{ $course }}</span>
-                                          @endforeach @endif
-                                        </div>
+                                       <p class="clear-margin relative"><strong>Information Technology, Bachelor,&nbsp;</strong>University of Oklahoma</p>
+                                       <p class="text-muted"><small>Jun, 2011 - Jan, 2014</small></p>
+                                       <i>4.0</i>
+                                       <div class="space-top labels"><span class="label label-keyword">DB1101 - Basic SQL</span><span class="label label-keyword">CS2011 - Java Introduction</span></div>
                                     </div>
                                  </li>
-                                 @empty
-                                 @endforelse
                               </ul>
                            </div>
                         </div>
                      </div>
-                    @if($user->awards()->exists())
                      <div class="detail" id="awards">
                         <div class="icon"><i class="fs-lg icon-trophy"></i><span class="mobile-title">Awards</span></div>
                         <div class="info">
                            <h4 class="title text-uppercase">Awards</h4>
                            <div class="content">
                               <ul class="list-unstyled clear-margin">
-                                @foreach($user->awards as $award)
                                  <li class="card card-nested">
                                     <div class="content">
-                                       <p class="clear-margin" itemprop="award"><strong>{{$award->title}} </strong>{{ $award->awarder }}</p>
-                                       <p class="text-muted"><small>Awarded on: {{ !empty($award->date)?$award->date->format('jS F Y'):'' }}<</small></p>
+                                       <p class="clear-margin" itemprop="award"><strong>Digital Compression Pioneer Award </strong>Techcrunch</p>
+                                       <p class="text-muted"><small>Awarded on: Nov 01, 2014</small></p>
                                        <div class="mop-wrapper">
-                                          <p>{{ $award->summary }}</p>
+                                          <p>There is no spoon.</p>
                                        </div>
                                     </div>
                                  </li>
-                                 @endforeach
                               </ul>
                            </div>
                         </div>
                      </div>
-                     @endif
-                     @if($user->volunteer()->exists())
                      <div class="detail" id="volunteer-work">
                         <div class="icon"><i class="fs-lg icon-child"></i><span class="mobile-title">Volunteer Work</span></div>
                         <div class="info">
                            <h4 class="title text-uppercase">Volunteer Work</h4>
                            <div class="content">
                               <ul class="list-unstyled clear-margin">
-                                @foreach($user->volunteer as $volunteer)
                                  <li class="card card-nested">
                                     <div class="content">
-                                       <p class="clear-margin relative"><strong>{{ $volunteer->position }}, </strong><a href="{{ !empty($volunteer->website)?$volunteer->website:'javascript:void(0)' }}" target="_blank">{{ $volunteer->organization }}</a></p>
-                                       <p class="text-muted"><small>{{ $volunteer->start_date->format(' F Y') }} - {{ !empty($volunteer->end_date)?$volunteer->end_date->format(' F Y'):'Present' }}</small></p>
+                                       <p class="clear-margin relative"><strong>Teacher, </strong><a href="http://coderdojo.com/" target="_blank">CoderDojo</a></p>
+                                       <p class="text-muted"><small>Jan, 2012 - Jan, 2013</small></p>
                                        <div class="mop-wrapper">
-                                          <p>{{ $volunteer->summary }}</p>
+                                          <p>Global movement of free coding clubs for young people.</p>
                                        </div>
                                        <ul>
-                                          @forelse($volunteer->highlights as $high)
                                           <li class="mop-wrapper">
-                                             <p>{{ $high }}</p>
+                                             <p>Awarded 'Teacher of the Month'</p>
                                           </li>
-                                          @empty
-                                          @endforelse
                                        </ul>
                                     </div>
                                  </li>
-                                 @endforeach
                               </ul>
                            </div>
                         </div>
                      </div>
-                     @endif
-                     @if($user->publications()->exists())
                      <div class="detail" id="publications">
-                        <div class="icon">
-                          <i class="fs-lg icon-newspaper"></i>
-                          <span class="mobile-title">Publications</span>
-                        </div>
+                        <div class="icon"><i class="fs-lg icon-newspaper"></i><span class="mobile-title">Publications</span></div>
                         <div class="info">
                            <h4 class="title text-uppercase">Publications</h4>
                            <div class="content">
                               <ul class="list-unstyled clear-margin">
-                                @foreach($user->publications as $publication)
                                  <li class="card card-nested">
                                     <div class="content">
-                                       <p class="clear-margin"><strong><a href="{{ !empty($publication->website)?$publication->website:'javascript:void(0)' }}" target="_blank">{{ $publication->name }}</a>&nbsp;,&nbsp;</strong>{{ $publication->publisher }}</p>
-                                       <p class="text-muted"><small>Published on: {{ !(empty($publication->release_date))?$publication->release_date->format('jS F Y'):'' }}</small></p>
+                                       <p class="clear-margin"><strong><a href="http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)" target="_blank">Video compression for 3d media</a>&nbsp;,&nbsp;</strong>Hooli</p>
+                                       <p class="text-muted"><small>Published on: Oct 01, 2014</small></p>
                                        <div class="mop-wrapper">
-                                          <p>{{ $publication->summary }}</p>
+                                          <p>Innovative middle-out compression algorithm that changes the way we store data.</p>
                                        </div>
                                     </div>
                                  </li>
-                                 @endforeach
                               </ul>
                            </div>
                         </div>
                      </div>
-                     @endif
-                     @if($user->interests()->exists())
                      <div class="detail" id="interests">
                         <div class="icon"><i class="fs-lg icon-heart"></i><span class="mobile-title">Interests</span></div>
                         <div class="info">
                            <h4 class="title text-uppercase">Interests</h4>
                            <div class="content">
                               <ul class="list-unstyled clear-margin">
-                                @foreach($user->interests as $interest)
                                  <li class="card card-nested">
-                                    <p><strong>{{ $interest->name }}</strong></p>
-                                    <div class="space-top labels">
-                                      @forelse($interest->keywords as $key)
-                                      <span class="label label-keyword">{{ $key }}</span>
-                                      @empty
-                                      @endforelse
-                                    </div>
+                                    <p><strong>Wildlife</strong></p>
+                                    <div class="space-top labels"><span class="label label-keyword">Ferrets</span><span class="label label-keyword">Unicorns</span></div>
                                  </li>
-                                 @endforeach
                               </ul>
                            </div>
                         </div>
                      </div>
-                     @endif
-                     @if($user->references()->exists())
                      <div class="detail" id="references">
                         <div class="icon"><i class="fs-lg icon-thumbs-up"></i><span class="mobile-title">References</span></div>
                         <div class="info">
                            <h4 class="title text-uppercase">References</h4>
                            <div class="content">
                               <ul class="list-unstyled clear-margin">
-                                @foreach($user->references as $reference)
                                  <li class="card card-nested">
-                                    {{ $reference->name }}
+                                    Erlich Bachman
                                     <blockquote class="quote">
                                        <div class="mop-wrapper">
-                                          <p>{{ $reference->reference }}</p>
+                                          <p>It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company.</p>
                                        </div>
                                     </blockquote>
                                  </li>
-                                 @endforeach
                               </ul>
                            </div>
                         </div>
                      </div>
-                     @endif
                   </div>
                </div>
             </section>

@@ -42,9 +42,10 @@ class SocialAccountController extends Controller
 
         auth()->login($authUser, true);
 
-        return redirect()->intended(session()->pull('from','/'));
+        return redirect()->intended(session()->pull('from','/'))->with('success-msg','Welcome '.$authUser->name);
     }
 
+    //Create or login the user if exist
     public function findOrCreate($providerUser, $provider)
     {
     	$account = LinkedSocialAccount::where('provider_name', $provider)

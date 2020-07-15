@@ -25,7 +25,6 @@
                            <hr align="left" style="width:125px;">
                         </div>
                        <div class="col-md-6 cv-menu">
-                            <a href="">My CV</a>
                             <a href="">Cv Settings</a>
                             <a href="">Download CV</a>
                        </div>
@@ -38,7 +37,7 @@
                                     <button class="pull-right" id="change_profile">change</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <img id="profile_image" src="{{ !empty($user->picture)?'/uploads/avatars/'.$user->picture:'/img/avatar.jpg' }}" class="profile-pic image-responsive">
+                                    <img id="profile_image" src="@if(!empty($user->picture) &&(str_contains($user->picture, 'http://') || str_contains($user->picture, 'https://'))) {{ $user->picture }} @elseif(!empty($user->picture)) {{ '/uploads/avatars/'.$user->picture }} @else {{ '/img/avatar.jpg' }} @endif" class="profile-pic image-responsive">
                                     <form id="image_uploader" class="form-group cv-actions" enctype="multipart/form-data" style="display: none;">
                                         @csrf
                                         <label for="image">Choose an Image</label>

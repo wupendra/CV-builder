@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      	<a class="navbar-brand" href="index.html">
+                      	<a class="navbar-brand" href="{{ route('home') }}">
                             <img src="img/logo.png" alt="Entire Gorkhali Group Security PVT. LTD" />
                         </a>
                     </div>
@@ -58,14 +58,17 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+
+                                <a href="{{ route('frontend.user.dashboard') }}">
+                                    My CV
+                                </a>
+                                <a href="{{ route('frontend.user.settings') }}">
+                                    Settings
+                                </a>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Logout
-                                </a>
-
-                                <a href="#">
-                                    My CV
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

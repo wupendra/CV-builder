@@ -508,7 +508,7 @@ h4 > .fa {
 
             <h4 id="work-experience"> <span class="fa fa-lg fa-pencil-square-o"></span> <span class="title">Work Experience</span> </h4>
             <ul class="list-unstyled">
-              @forelse($user->works as $work)
+              @forelse($user->work as $work)
                 <li class="card-nested">
                   <div class="content has-sidebar">
                     <p class="clear-margin-sm">
@@ -552,7 +552,7 @@ h4 > .fa {
             <h4 id="education"><span class="fa fa-lg fa-mortar-board"></span> <span class="title">Education</span></h4>
             
             <ul class="list-unstyled">
-              @forelse($user->educations as $education)
+              @forelse($user->education as $education)
                 <li class="card-nested">
                   <div class="content has-sidebar">
                     <p class="clear-margin-sm">
@@ -595,10 +595,10 @@ h4 > .fa {
               @endforeach
             </ul>
             @endif
-            @if($user->volunteers()->exists())
+            @if($user->volunteer()->exists())
             <h4 id="volunteer-work"><span class="fa fa-lg fa-child"></span> <span class="title">Volunteer Work</span> </h4>
             <ul class="list-unstyled">
-              @foreach($user->volunteers as $volunteer)
+              @foreach($user->volunteer as $volunteer)
                 <li class="card-nested">
                   <div class="content has-sidebar">
                     <p class="clear-margin-sm">

@@ -45,7 +45,10 @@ Route::group(array('prefix' => 'admins','namespace' => 'backend','middleware'=>'
 //Frontend Route Start...............................................................
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/themes', 'ThemeController@index')->name('frontend.theme.list');
-Route::get('/profile', 'UserController@index')->name('frontend.user.dashboard');
+Route::get('/mycv', 'UserController@index')->name('frontend.user.dashboard');
+Route::get('/settings', 'UserController@userSettings')->name('frontend.user.settings');
+Route::post('/settings', 'UserController@storeUserSettings')->name('frontend.user.settings.submit');
+Route::get('/profile/{user}', 'UserController@viewProfile')->name('frontend.view.profile');
 //check username for new user
 Route::post('check-user-username', 'AjaxController@checkUserUsername')->name('frontend.check.username');
 
@@ -95,9 +98,9 @@ Route::post('/cv-store-reference', 'AjaxController@storeReferenceForm')->name('f
 Route::post('/cv-reference-delete', 'AjaxController@deleteReference')->name('frontend.reference.delete');
 
 //user theme preview
-Route::get('/theme-preview/{theme}', 'ThemeController@themePreview')->name('frontend.user.theme.preview');
+Route::get('/theme-preview/{theme}', 'ThemeController@themePreview')->name('frontend.theme.preview');
 //cv pdf download
-Route::get('generate-pdf/{theme}','PDFController@generatePDF')->name('frontend.generate.pdf');
+Route::get('generate-cv/{theme}','UserController@generateCv')->name('frontend.generate.pdf');
 
 //terms and policy
 Route::get('terms-and-conditions','HomeController@TermsNConditon')->name('frontend.terms.conditon');

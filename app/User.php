@@ -44,7 +44,7 @@ class User extends Authenticatable
     }
 
     //user has many education
-    public function educations()
+    public function education()
     {
         return $this->hasMany(Education::class);
     }
@@ -92,13 +92,13 @@ class User extends Authenticatable
     }
 
     //User has many volunteers
-    public function volunteers()
+    public function volunteer()
     {
         return $this->hasMany(Volunteer::class);
     }
 
     //User has many works
-    public function works()
+    public function work()
     {
         return $this->hasMany(Work::class)->orderByRaw("-end_date",'DESC');
     }

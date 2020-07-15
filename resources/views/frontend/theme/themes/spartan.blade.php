@@ -597,7 +597,7 @@ h2.section-title {
 				<section class="section">
 					<h2 class='section-title'>Experience</h2>
 					<section id="work">
-						@forelse($user->works as $work)
+						@forelse($user->work as $work)
 						<header>
 							<h3 class="name">
 								{{ $work->company }}
@@ -638,7 +638,7 @@ h2.section-title {
 				<section class="section">
 					<h2 class='section-title'>Education</h2>
 					<section id="education">
-						@forelse($user->educations as $education)
+						@forelse($user->education as $education)
 							<header>
 									<h3 class="institution">
 										{{ $education->institution }}
@@ -675,11 +675,11 @@ h2.section-title {
 					</section>
 				</section>
 
-				@if($user->volunteers()->exists())
+				@if($user->volunteer()->exists())
 				<section class="section">
 					<h2 class='section-title'>Volunteer</h2>
 					<section id="volunteer">
-						@foreach($user->volunteers as $volunteer)
+						@foreach($user->volunteer as $volunteer)
 							<header>
 								<h3 class="company">
 									{{ $volunteer->organization }}
