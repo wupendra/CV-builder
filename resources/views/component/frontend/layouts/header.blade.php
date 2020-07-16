@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                       </button>
                       	<a class="navbar-brand" href="{{ route('home') }}">
-                            <img src="img/logo.png" alt="Entire Gorkhali Group Security PVT. LTD" />
+                            <img src="{{ asset('img/logo.png') }}" alt="Make My CV" />
                         </a>
                     </div>
                     <div class="collapse navbar-collapse header_main_menu_wrapper">
@@ -62,6 +62,11 @@
                                 <a href="{{ route('frontend.user.dashboard') }}">
                                     My CV
                                 </a>
+                                @if(!empty(Auth::guard('web')->user()->username))
+                                <a href="{{ route('frontend.view.profile',auth()->guard('web')->user()->username) }}">
+                                    My Profile
+                                </a>
+                                @endif
                                 <a href="{{ route('frontend.user.settings') }}">
                                     Settings
                                 </a>

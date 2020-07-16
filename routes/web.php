@@ -47,7 +47,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/themes', 'ThemeController@index')->name('frontend.theme.list');
 Route::get('/mycv', 'UserController@index')->name('frontend.user.dashboard');
 Route::get('/settings', 'UserController@userSettings')->name('frontend.user.settings');
-Route::post('/settings', 'UserController@storeUserSettings')->name('frontend.user.settings.submit');
+Route::post('/visibility-settings', 'UserController@storeUserSettings')->name('frontend.visibility.submit');
+Route::post('/change-user-password', 'UserController@postChangePassword')->name('frontend.change.password');
 Route::get('/profile/{user}', 'UserController@viewProfile')->name('frontend.view.profile');
 //check username for new user
 Route::post('check-user-username', 'AjaxController@checkUserUsername')->name('frontend.check.username');
@@ -99,6 +100,10 @@ Route::post('/cv-reference-delete', 'AjaxController@deleteReference')->name('fro
 
 //user theme preview
 Route::get('/theme-preview/{theme}', 'ThemeController@themePreview')->name('frontend.theme.preview');
+//theme selection
+Route::get('/theme-selection', 'ThemeController@selectTheme')->name('frontend.theme.selection');
+Route::post('/theme-selection', 'ThemeController@postSelectTheme')->name('frontend.theme.selection');
+
 //cv pdf download
 Route::get('generate-cv/{theme}','UserController@generateCv')->name('frontend.generate.pdf');
 

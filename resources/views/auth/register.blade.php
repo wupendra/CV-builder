@@ -218,7 +218,7 @@
             }
             else{
                 var name = $('#username').val();
-                var nick = new RegExp('^[a-zA-Z0-9_]+$');
+                var nick = new RegExp('^[a-zA-Z0-9-_]+$');
                 if(nick.test(name)){
                     ele = $('#username');
                     $.ajax({
@@ -252,7 +252,7 @@
                     $(this).parent('div').siblings('.u-alert').removeClass('successmsg');
                     $(this).parent('div').siblings('input').addClass('is-invalid');
                     $(this).parent('div').siblings('.u-alert').addClass('errormsg');
-                    $(this).parent('div').siblings('.u-alert').text('Username can only contain alphabets, numbers and underscore.');
+                    $(this).parent('div').siblings('.u-alert').text('Username can only contain alphabets, numbers, dash and underscore.');
                     val = false;
                 }
             }

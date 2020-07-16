@@ -538,6 +538,7 @@ h2.section-title {
 
 						<div id="location">
 							<span class="fa fa-map-marker"></span>
+							@if($user->location()->exists())
 							<span class="address">
 								{{ $user->location->address?? $user->loacation->address }},
 							</span>
@@ -553,6 +554,7 @@ h2.section-title {
 							<span class="region">
 								{{ $user->location->region??$user->location->region}}
 							</span>
+							@endif
 						</div>
 
 					<div id="contact">

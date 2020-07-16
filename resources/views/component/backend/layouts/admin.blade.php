@@ -9,24 +9,24 @@
 @section('stylesheets')
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
  <!-- Bootstrap Core CSS -->
-<link href="{{ asset('/assets/css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
+<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
-<link href="{{ asset('/assets/css/style.css') }}" rel='stylesheet' type='text/css' />
+<link href="{{ asset('assets/css/style.css') }}" rel='stylesheet' type='text/css' />
 <!-- Graph CSS -->
-<link href="{{ asset('/assets/css/font-awesome.css') }}" rel="stylesheet"> 
+<link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet"> 
 <!-- jQuery -->
 <!-- lined-icons -->
-<link rel="stylesheet" href="{{ asset('/assets/css/icon-font.min.css') }}" type='text/css' />
+<link rel="stylesheet" href="{{ asset('assets/css/icon-font.min.css') }}" type='text/css' />
 <!-- //lined-icons -->
 <!-- Custom CSS -->
-<link href="{{ asset('/assets/css/custom.css') }}" rel='stylesheet' type='text/css' />
+<link href="{{ asset('assets/css/custom.css') }}" rel='stylesheet' type='text/css' />
 @show
 <!-- chart -->
-<script src="{{ asset('/assets/js/Chart.js') }} "></script>
+<script src="{{ asset('assets/js/Chart.js') }} "></script>
 <!-- //chart -->
 <!--animate-->
-<link href="{{ asset('/assets/css/animate.css') }}" rel="stylesheet" type="text/css" media="all">
-<script src="{{ asset('/assets/js/wow.min.js') }} "></script>
+<link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet" type="text/css" media="all">
+<script src="{{ asset('assets/js/wow.min.js') }} "></script>
 	<script>
 		 new WOW().init();
 	</script>
@@ -65,10 +65,10 @@
     <!-- main content end-->
    	</section>
  	@section('javascripts') 
-	<script src="{{ asset('/assets/js/jquery.nicescroll.js') }} "></script>
-	<script src="{{ asset('/assets/js/scripts.js') }} "></script>
+	<script src="{{ asset('assets/js/jquery.nicescroll.js') }} "></script>
+	<script src="{{ asset('assets/js/scripts.js') }} "></script>
 	<!-- Bootstrap Core JavaScript -->
-   	<script src="{{ asset('/assets/js/bootstrap.min.js') }} "></script>
+   	<script src="{{ asset('assets/js/bootstrap.min.js') }} "></script>
    	<script src="{{ asset('assets/js/bootstrap-notify.min.js') }}"></script>
    	<script type="text/javascript">
       function alertSuccess(message)

@@ -1434,6 +1434,11 @@ blockquote p {
 	visibility:visible;
 	margin-top:-40px;
 }
+.courses-item:hover .show-more-hidden-btn.select-theme-btn
+{
+	visibility:visible;
+	margin-top:-80px;
+}
 .show-more-hidden-btn a
 {
 	padding:8px;
@@ -2110,7 +2115,7 @@ textarea {
 	border-radius: 5px;
 	color: #333;
 }
-.cv-menu a:hover{
+.cv-menu a:hover, .cv-menu .active{
 	background-color: rgb(236, 93, 47);
 	color: #fff;
 }
@@ -2274,8 +2279,23 @@ textarea {
 .remove-item:hover{
 	background-color: #c82333;
 }
-
-
+.profile-visibility{
+	padding-bottom:20px;
+}
+.user-settings {
+	padding: 50px 20px;
+	margin: 70px 0 50px 0;
+}
+.user-settings .abtCom{
+	padding: 0 20px;
+}
+.private-card{
+	text-align: center;
+	font-size: 100px;
+}
+.short-page-content{
+	margin: 100px 0;
+}
 
 
 

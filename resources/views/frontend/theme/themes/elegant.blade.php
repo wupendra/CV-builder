@@ -1028,7 +1028,7 @@
                   <div class="contact-details clearfix">
                     <div class="detail">
                       <span class="icon"><i class="icon fs-lg icon-location"></i></span>
-                      <span class="info">{{ $user->location->address }}, {{ $user->location->postal_code }}, {{ $user->location->city }}, {{ $user->location->region?$user->location->region.' region,':'' }} {{ $user->location->country_code }}</span>
+                      <span class="info">@if($user->location()->exists()){{ $user->location->address }}, {{ $user->location->postal_code }}, {{ $user->location->city }}, {{ $user->location->region?$user->location->region.' region,':'' }} {{ $user->location->country_code }}@endif</span>
                     </div>
                     <div class="detail">
                       <span class="icon"><i class="icon fs-lg icon-phone"></i></span>

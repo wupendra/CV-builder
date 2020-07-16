@@ -107,4 +107,10 @@ class User extends Authenticatable
     public function accounts(){
         return $this->hasMany('App\LinkedSocialAccount');
     }
+
+    //scope visibility of the user
+    public function scopeVisibility($query, $value)
+    {
+        return $query->where('visibility', $value);
+    }
 }

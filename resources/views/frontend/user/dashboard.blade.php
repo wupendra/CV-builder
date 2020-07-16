@@ -20,14 +20,20 @@
             <div class="detail-page-wrap">
                 <div class="col-md-12 service-detail-sec">
                     <div class="intro-header-sec intro-header-sec-adv">
+                        @if(empty($user->username))
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                Please edit your <strong><a href="{{ route('frontend.user.settings') }}">Settings</a><strong> to view your profile.
+                            </div>
+                        @endif
                         <div class="col-md-6">                            
                            <h1>My CV</h1>
                            <hr align="left" style="width:125px;">
                         </div>
-                       <div class="col-md-6 cv-menu">
-                            <a href="">Cv Settings</a>
-                            <a href="">Download CV</a>
-                       </div>
+                        <div class="col-md-6 cv-menu">
+                            <a href="{{ route('frontend.user.settings') }}">Cv Settings</a>
+                            <a href="{{ route('frontend.theme.selection') }}">Download CV</a>
+                        </div>
                     </div>
                     <div class="col-md-12 user-info cv-ele">
                         <div class="row">

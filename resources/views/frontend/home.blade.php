@@ -14,7 +14,7 @@
             <p>@if(isset($appsetting->options['banner_caption'])){{ $appsetting->options['banner_caption'] }} @endif</p>
             <div class="btn-sec pull-left">
                 @if(auth()->guard('web')->check())
-                    <a href="#">My CV</a>
+                    <a href="{{ route('frontend.user.dashboard') }}">My CV</a>
                 @else
                     <a href="{{ route('register') }}">Sign Up</a>
                 @endif

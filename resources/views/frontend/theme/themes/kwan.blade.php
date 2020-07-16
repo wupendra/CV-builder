@@ -473,7 +473,7 @@ h4 > .fa {
                       </span>
 
                         <span class="info">
-                          {{ $user->location->address }}, {{ $user->location->postal_code }}, {{ $user->location->city }}, {{ $user->location->region?$user->location->region.' region,':'' }} {{ $user->location->country_code }}
+                          @if($user->location()->exists()){{ $user->location->address }}, {{ $user->location->postal_code }}, {{ $user->location->city }}, {{ $user->location->region?$user->location->region.' region,':'' }} {{ $user->location->country_code }}@endif
                         </span>
                     </div>
 

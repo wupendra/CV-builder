@@ -8,16 +8,16 @@
     <meta name="keyword" charset="utf-8" content="@yield('meta_keyword',$appsetting->meta_keyword)">
     <meta name="description" charset="utf-8" content="@yield('meta_description', $appsetting->meta_description)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<link rel="icon" type="image/png" href="{{ asset('uploads/home/'.$appsetting->favicon) }}">
+	<link rel="icon" type="{{ asset('image/logo.png') }}" href="{{ asset('uploads/home/'.$appsetting->favicon) }}">
     @section('stylesheets')
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     
-    <link href="css/flickerplate.css"  type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/flickerplate.css') }}"  type="text/css" rel="stylesheet">
     
     
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
     
     @show
     
@@ -52,9 +52,9 @@
 
 
 @section('javascripts')
-<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap-notify.min.js') }}"></script>
 <script type="text/javascript">
     function alertSuccess(message)

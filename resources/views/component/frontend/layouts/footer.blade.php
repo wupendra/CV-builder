@@ -3,7 +3,7 @@
             <section class="footer-sec-1">
             	<div class="container foot-cont-1">
                 	<div class="col-md-3 section-foot">
-                    	<img src="img/logo.png" class="img-responsive" />
+                    	<img src="{{ asset('img/logo.png') }}" class="img-responsive" />
                         <p>{{ $appsetting->short_note }}</p>
                         <ul class="social-icons-footer">
                         	<li><a href="#"><i class="fa fa-facebook"></i></a></li>
