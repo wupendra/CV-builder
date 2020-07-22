@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="cv-ele-body">
                                     <img id="profile_image" src="@if(!empty($user->picture) &&(str_contains($user->picture, 'http://') || str_contains($user->picture, 'https://'))) {{ $user->picture }} @elseif(!empty($user->picture)) {{ '/uploads/avatars/'.$user->picture }} @else {{ '/img/avatar.jpg' }} @endif" class="profile-pic image-responsive">
-                                    <form id="image_uploader" class="form-group cv-actions" enctype="multipart/form-data" style="display: none;">
+                                    <form class="ele-form" id="image_uploader" class="form-group cv-actions" enctype="multipart/form-data" style="display: none;">
                                         @csrf
                                         <label for="image">Choose an Image</label>
                                         <input id="image" type="file" name="image">
@@ -72,7 +72,7 @@
                                     <button class="pull-right" id="add_work">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="work_form">
+                                    <form class="ele-form" id="work_form">
                                         @include('component.frontend.cv.forms.user-work',['work'=>$work])
                                     </form>
                                     @include('component.frontend.cv.user-work-list',['user'=>$user])
@@ -84,7 +84,7 @@
                                     <button class="pull-right" id="add_profile">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="profile_form">
+                                    <form class="ele-form" id="profile_form">
                                         @include('component.frontend.cv.forms.user-profile',['profile'=>$profile])
                                     </form>
                                     @include('component.frontend.cv.user-profile-list',['user'=>$user])
@@ -100,7 +100,7 @@
                                     <button class="pull-right" id="add_education">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="education_form">
+                                    <form class="ele-form" id="education_form">
                                         @include('component.frontend.cv.forms.user-education',['education'=>$education])
                                     </form>
                                     @include('component.frontend.cv.user-education-list',['user'=>$user])
@@ -112,7 +112,7 @@
                                     <button class="pull-right" id="add_skill">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="skill_form">
+                                    <form class="ele-form" id="skill_form">
                                         @include('component.frontend.cv.forms.user-skill',['skill'=>$skill])
                                     </form>
                                     @include('component.frontend.cv.user-skill-list',['user'=>$user])
@@ -128,7 +128,7 @@
                                     <button class="pull-right" id="add_award">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="award_form">
+                                    <form class="ele-form" id="award_form">
                                         @include('component.frontend.cv.forms.user-award',['award'=>$award])
                                     </form>
                                     @include('component.frontend.cv.user-award-list',['user'=>$user])
@@ -140,7 +140,7 @@
                                     <button class="pull-right" id="add_language">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="language_form">
+                                    <form class="ele-form" id="language_form">
                                         @include('component.frontend.cv.forms.user-language',['language'=>$language])
                                     </form>
                                     @include('component.frontend.cv.user-language-list',['user'=>$user])
@@ -156,7 +156,7 @@
                                     <button class="pull-right" id="add_volunteer">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="volunteer_form">
+                                    <form class="ele-form" id="volunteer_form">
                                         @include('component.frontend.cv.forms.user-volunteer',['volunteer'=>$volunteer])
                                     </form>
                                     @include('component.frontend.cv.user-volunteer-list',['user'=>$user])
@@ -168,7 +168,7 @@
                                     <button class="pull-right" id="add_interest">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="interest_form">
+                                    <form class="ele-form" id="interest_form">
                                         @include('component.frontend.cv.forms.user-interest',['interest'=>$interest])
                                     </form>
                                     @include('component.frontend.cv.user-interest-list',['user'=>$user])
@@ -184,7 +184,7 @@
                                     <button class="pull-right" id="add_publication">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="publication_form">
+                                    <form class="ele-form" id="publication_form">
                                         @include('component.frontend.cv.forms.user-publication',['publication'=>$publication])
                                     </form>
                                     @include('component.frontend.cv.user-publication-list',['user'=>$user])
@@ -196,7 +196,7 @@
                                     <button class="pull-right" id="add_reference">Add</button>
                                 </div>
                                 <div class="cv-ele-body">
-                                    <form id="reference_form">
+                                    <form class="ele-form" id="reference_form">
                                         @include('component.frontend.cv.forms.user-reference',['reference'=>$reference])
                                     </form>
                                     @include('component.frontend.cv.user-reference-list',['user'=>$user])
@@ -234,7 +234,7 @@
     @parent
     <script src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(function(){
             $( ".datepicker" ).datepicker({
                 defaultDate: "-3y",
                 changeYear: true,
@@ -375,6 +375,7 @@
         });
         //Add work
         $('#user-work').on('click','#add_work',function(){
+            console.log($($('.ele-form').is(':visible')).length);
             $('#work_form').show();
             $('#work_form input').val('');
             $('#work_form textarea').val('');
@@ -1666,6 +1667,7 @@
                 });
             }
         });
+    
     </script>
 @endsection
 @endsection

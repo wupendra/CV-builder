@@ -13,6 +13,7 @@
                     <label for="organization_website">Organization Website</label>
                     <input id="organization_website" name="organization_website" type="text" value="{{ old('organization_website', $volunteer->website) }}" placeholder="Organization Website" class="half-width" />
                     <div class="errormsg">{{ $errors->first('organization_website') }}</div>
+                    <small class="help-text">Please enter valid url: https://.... or http://....</small>
                 </div>
                 <div class="col-md-6">
                     <label for="volunteer_start_date">Start Date</label>

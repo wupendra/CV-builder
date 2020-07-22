@@ -485,7 +485,7 @@ h4 > .fa {
             <div class="social-links">
                 @forelse($user->profiles as $profile)
                 <a class="social-link" href="{{ $profile->url }}" target="_blank">
-                  <span class="fa fa-{{ $profile->network }} fa-2x"></span> 
+                  <span class="fa fa-{{ strtolower($profile->network) }} fa-2x"></span> 
                   <span class="social-link-text">{{ $profile->url }}</span>
                 </a>
                 @empty
@@ -538,8 +538,8 @@ h4 > .fa {
             <h4 id="skills"> <span class="fa fa-lg fa-code"></span> <span class="title">Skills</span> </h4>
             <ul class="list-unstyled">
               @forelse($user->skills as $skill)
-                <li class="card-nested skill master">
-                  <strong>{{ $skill->name }} ({{ $skill->level }}):</strong> 
+                <li class="card-nested skill {{ $skill->name }}">
+                  <strong>{{ $skill->name }} ({{ strtolower($skill->level) }}):</strong> 
                   @forelse($skill->keywords as $key)
                    <span class="enumeration">{{ $key }}</span>
                   @empty

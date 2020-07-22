@@ -575,7 +575,7 @@ h2.section-title {
 					<div id="profiles">
 						@foreach($user->profiles as $profile)
 						<div class="item">
-							<span class="fa fa-{{ $profile->network }} {{ $profile->network }}"></span>
+							<span class="fa fa-{{ strtolower($profile->network) }} {{ $profile->network }}"></span>
 							<span class="username">
 								<span class="url">
 									<a href="{{ $profile->url }}" target="_blank">{{ $profile->username }}</a>
@@ -740,28 +740,31 @@ h2.section-title {
 					</section>
 				</section>
 				@endif
-
+				@if($user->publications()->exists())
 				<section class="section">
 					<h2 class='section-title'>Publications</h2>
 					<section id="publications">
+						@foreach($user->publications as $publication)
 							<div class="item">
 								<span class="name">
 									<span class="website">
-										<a href="http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)">Video compression for 3d media</a>
+										<a href="{{ $publication->website }}">{{ $publication->name }}</a>
 									</span>
 								</span>
 									<span class="publisher">
-										in Hooli,
+										{{ $publication->publisher }},
 									</span>
 									<span class="date">
-										1 October 2014
+										{{ !empty($publication->release_date)?$publication->release_date->format('jS F Y'):'' }}
 									</span>
 								<div class="summary">
-									<p>Innovative middle-out compression algorithm that changes the way we store data.</p>
+									<p>{{ $publication->summary }}</p>
 								</div>
 							</div>
+						@endforeach
 					</section>
 				</section>
+				@endif
 				@if($user->skills()->exists())
 				<section class="section">
 					<h2 class='section-title'>Skills</h2>
@@ -771,7 +774,7 @@ h2.section-title {
 							<div class="name">
 								{{ $skill->name }}
 							</div>
-							<div class="level {{ $skill->level }}">
+							<div class="level {{ strtolower($skill->level) }}">
 								<em>{{ $skill->level }}</em>
 								<div class="bar"></div>
 							</div>

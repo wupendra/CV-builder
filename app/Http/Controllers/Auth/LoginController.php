@@ -40,14 +40,18 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        if(!session()->has('from')){
+        /*session()->forget('from');
+        if(!session()->has('from') && (url()->previous()!=url('/'))){
             session()->put('from', url()->previous());
         }
+        elseif(session()->has('from') && (session()->pull('from')==url('/')))
+            session()->forget('from');*/
         return view('auth.login');
     }
 
     public function authenticated($request,$user)
     {
-        return redirect()->intended(session()->pull('from',$this->redirectTo))->with('success-msg','Welcome '.$user->name);
+        //return redirect()->intended(session()->pull('from',$this->redirectTo))->with('success-msg','Welcome '.$user->name);
+        return redirect()->intended($this->redirectTo)->with('success-msg','Welcome '.$user->name);
     }
 }

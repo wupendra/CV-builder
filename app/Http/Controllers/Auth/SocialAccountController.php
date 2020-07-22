@@ -42,7 +42,7 @@ class SocialAccountController extends Controller
 
         auth()->login($authUser, true);
 
-        return redirect()->intended(session()->pull('from','/'))->with('success-msg','Welcome '.$authUser->name);
+        return redirect()->intended('/mycv')->with('success-msg','Welcome '.$authUser->name);
     }
 
     //Create or login the user if exist

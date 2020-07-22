@@ -18,7 +18,10 @@
             </tr>
             <tr>
                 <th><label for="website">Website</label></th>
-                <td><input name="website" type="text" value="{{ old('website', $user->website) }}" placeholder="Website" class="half-width" id="website" /></td>
+                <td>
+                    <input name="website" type="text" value="{{ old('website', $user->website) }}" placeholder="Website" class="half-width" id="website" />
+                    <small class="help-text">Please enter valid url: https://.... or http://....</small>
+                </td>
             </tr>
             <tr>
                 <th>Address</th>

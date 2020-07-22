@@ -1057,7 +1057,7 @@
                   <div class="social-links text-center">
                     <div>
                       @forelse($user->profiles as $profile)
-                      <a class="fs-2x social-link link-{{ $profile->network }} icon-{{ $profile->network }}" href="{{ $profile->url }}" target="_blank" data-toggle="tooltip" title="{{ $user->name }} on {{ $profile->network }}"></a>
+                      <a class="fs-2x social-link link-{{ strtolower($profile->network) }} icon-{{ strtolower($profile->network) }}" href="{{ $profile->url }}" target="_blank" data-toggle="tooltip" title="{{ $user->name }} on {{ $profile->network }}"></a>
                       @empty
                       @endforelse
                     </div>
@@ -1122,7 +1122,7 @@
                               <ul class="list-unstyled clear-margin">
                                 @forelse($user->skills as $skill)
                                  <li class="card card-nested card-skills">
-                                    <div class="skill-level" data-toggle="tooltip" title="{{ $skill->level }}" data-placement="left">
+                                    <div class="skill-level" data-toggle="tooltip" title="{{ strtolower($skill->level) }}" data-placement="left">
                                        <div class="skill-progress {{ $skill->level }}"></div>
                                     </div>
                                     <div class="skill-info">

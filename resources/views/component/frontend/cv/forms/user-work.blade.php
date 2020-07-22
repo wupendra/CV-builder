@@ -13,6 +13,7 @@
                     <label for="company_website">Company Website</label>
                     <input id="company_website" name="company_website" type="text" value="{{ old('company_website', $work->website) }}" placeholder="Company Website" class="half-width" />
                     <div class="errormsg">{{ $errors->first('company_website') }}</div>
+                    <small class="help-text">Please enter valid url: https://.... or http://....</small>
                 </div>
                 <div class="col-md-6">
                     <label for="work_start_date">Start Date</label>

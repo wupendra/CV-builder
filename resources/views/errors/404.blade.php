@@ -13,7 +13,7 @@
                 <div class="col-md-12 service-detail-sec">
                     <div class="intro-header-sec intro-header-sec-adv">
                         <div class="col-md-12">                            
-                           <h1>Private CV</h1>
+                           <h1>Page Not Found</h1>
                            <hr align="left" style="width:125px;">
                         </div>
                     </div>
